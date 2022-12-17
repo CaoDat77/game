@@ -75,9 +75,9 @@ function Shop() {
                   </select>
                 </div>
 
-                {products.map((product) => (
+                {products.map((product, index) => (
                   <Col lg={4}>
-                    <Product product={product} />
+                    <Product product={product} key={index} />
                   </Col>
                 ))}
               </Row>
