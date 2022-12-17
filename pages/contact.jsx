@@ -4,6 +4,7 @@ import Sologan from "./componnet/Sologan";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
+import Image from "next/image";
 function Contact() {
   const {
     register,
@@ -108,7 +109,7 @@ function Contact() {
           <Row>
             <Col xs={6} lg={3}>
               <div className={styles.item}>
-                <img
+                <Image
                   className={styles.img}
                   src="/contact/contact-2.jpg"
                   alt=""
@@ -124,7 +125,7 @@ function Contact() {
             </Col>
             <Col xs={6} lg={3}>
               <div className={styles.item}>
-                <img
+                <Image
                   className={styles.img}
                   src="/contact/contact-3.jpg"
                   alt=""
@@ -140,7 +141,7 @@ function Contact() {
             </Col>
             <Col xs={6} lg={3}>
               <div className={styles.item}>
-                <img
+                <Image
                   className={styles.img}
                   src="/contact/contact-4.jpg"
                   alt=""
@@ -156,7 +157,7 @@ function Contact() {
             </Col>
             <Col xs={6} lg={3}>
               <div className={styles.item}>
-                <img
+                <Image
                   className={styles.img}
                   src="/contact/contact-5.jpg"
                   alt=""

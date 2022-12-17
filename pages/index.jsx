@@ -7,6 +7,7 @@ import List from "./componnet/List";
 import Link from "next/link";
 import Slider from "./componnet/Slider";
 import Blog from "./componnet/BlogHome";
+import Image from "next/image";
 
 import Sologan from "./componnet/Sologan";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,7 +22,7 @@ function Home() {
         <section className={styles.mgT80}>
           <Row>
             <Col xs={12} lg={6} className={styles.nonePd}>
-              <img className={styles.img} src="/home/home-1.jpg" alt="" />
+              <Image className={styles.img} src="/home/home-1.jpg" alt="" />
             </Col>
             <Col xs={12} lg={6} className={styles.nonePd}>
               <div className={styles.maxwidth}>
@@ -49,7 +50,7 @@ function Home() {
             </Col>
 
             <Col xs={12} lg={6}>
-              <img className={styles.img} src="/home/home-2.jpg" alt="" />
+              <Image className={styles.img} src="/home/home-2.jpg" alt="" />
             </Col>
           </Row>
         </section>
@@ -90,7 +91,7 @@ function Home() {
         <div className={styles.container}>
           <Row>
             <Col lg={6} className={styles.nonePd}>
-              <img className={styles.img} src="/home/home-6.jpg" alt="" />
+              <Image className={styles.img} src="/home/home-6.jpg" alt="" />
             </Col>
 
             <Col lg={6} className={styles.nonePd}>

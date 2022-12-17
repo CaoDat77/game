@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import styles from "../../styles/DetailBlog.module.css";
 import Link from "next/link";
-
+import Image from "next/image";
 function DetailBlog() {
   return (
     <Container fluid className={styles.page}>
@@ -21,7 +21,11 @@ function DetailBlog() {
         <Container>
           <Row>
             <Col lg={8}>
-              <img className={styles.img} src="/detailblog/pic-1.jpg" alt="" />
+              <Image
+                className={styles.img}
+                src="/detailblog/pic-1.jpg"
+                alt=""
+              />
               <p className={styles.small}>
                 BY SIMONA LEE SEPTEMBER 28, 2022 ARTDESIGN
               </p>
@@ -72,7 +76,7 @@ function DetailBlog() {
               </p>
               <Row>
                 <Col lg={6}>
-                  <img
+                  <Image
                     className={styles.img}
                     src="/detailblog/pic-3.jpg"
                     alt=""
@@ -80,7 +84,7 @@ function DetailBlog() {
                 </Col>
 
                 <Col lg={6}>
-                  <img
+                  <Image
                     className={styles.img}
                     src="/detailblog/pic-2.jpg"
                     alt=""
@@ -101,7 +105,7 @@ function DetailBlog() {
             <Col lg={3}>
               <div className={styles.bgAvata}>
                 <div className={styles.center}>
-                  <img
+                  <Image
                     className={styles.avata}
                     src="/detailblog/avata-1.jpg"
                     alt=""
@@ -145,7 +149,7 @@ function DetailBlog() {
                 </div>
               </div>
 
-              <img src="/detailblog/pic-4.jpg" alt="" />
+              <Image src="/detailblog/pic-4.jpg" alt="" />
             </Col>
           </Row>
         </Container>
