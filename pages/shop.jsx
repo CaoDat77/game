@@ -7,21 +7,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useSelector, useDispatch } from "react-redux";
-import { selectProductsList } from "./store/features/products/products.slice";
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  selectProductsList,
+  loadProduct,
+  loadProductById,
+  selectProductStatus,
+} from "./store/features/products/products.slice";
 
 function Shop() {
-  const {
-    // categories,
-    products,
-    currentPage,
-    totalPage,
-    displayStyle,
-    pageChanged,
-    displayChanged,
-    filterChanged,
-  } = useSelector(selectProductsList);
   const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(loadProduct({ productId: 1 }));
+  }, []);
+
+  const { products, currentPage, totalPage, pageChanged } =
+    useSelector(selectProductsList);
 
   const paginationItems = new Array(totalPage)
     .fill(null)

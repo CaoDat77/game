@@ -29,8 +29,28 @@ const productsSlice = createSlice({
       };
     },
   },
+
+  addItem: (state, { payload: { productId, quantity } }) => {
+    const itemIndex = state.findIndex((item) => item.productId == productId);
+
+    if (itemIndex !== -1) {
+      const newItem = {
+        ...state[itemIndex],
+        quantity: state[itemIndex].quantity + quantity,
+      };
+
+      const newState = [...state];
+      newState[itemIndex] = newItem;
+
+      return newState;
+    } else {
+      return [...state, { productId, quantity }];
+    }
+  },
+
   extraReducers: (builder) => {
     builder.addCase(loadProduct.fulfilled, (state, action) => {
+      console.log("LOLOLOL");
       console.log(action, state); //Không hiện thông tin
       return {
         ...state,
@@ -42,7 +62,7 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { pageChanged, displayChanged, filterChanged } =
+export const { pageChanged, displayChanged, filterChanged, addItem } =
   productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.data;
