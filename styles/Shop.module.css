@@ -1,0 +1,67 @@
+.bg {
+  margin: 0;
+  padding: 0 !important;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/shop/pic-1.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mT80 {
+  margin-top: 8rem;
+}
+
+.page {
+  padding: 0 !important;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+  height: 27rem;
+}
+
+.search {
+  width: 100%;
+  border: none;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #333;
+  outline: none;
+  font-size: 2.4rem;
+  font-family: "EB Garamond", serif;
+  color: #333;
+}
+
+.sort {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.select {
+  width: 35%;
+  border: none;
+  padding: 1rem 2rem;
+  outline: none;
+  font-size: 2rem;
+  font-family: "EB Garamond", serif;
+  color: #333;
+}
+
+.icon {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.icon svg {
+  font-size: 2.4rem;
+}
+
+.input {
+  position: relative;
+}

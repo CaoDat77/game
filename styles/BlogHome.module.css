@@ -1,0 +1,41 @@
+.box {
+  height: 60rem;
+  overflow: hidden;
+}
+
+.ab {
+  position: relative;
+  bottom: 10rem;
+  left: 0;
+  height: 30rem;
+  background-color: white;
+  width: 95%;
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  font-family: "Poppins", sans-serif;
+  padding: 1.6rem 0;
+  transition: 0.5s;
+}
+
+.textBlog {
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  letter-spacing: 0.2rem;
+  transition: 0.3s;
+}
+
+.textA {
+  text-decoration: none;
+  color: #000;
+}
+
+.textA:hover {
+  color: #000;
+}
+
+.box:hover .ab {
+  bottom: 19rem;
+}
+
+

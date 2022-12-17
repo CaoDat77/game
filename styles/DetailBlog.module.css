@@ -1,0 +1,128 @@
+.bg {
+  background-color: #f2f1ee;
+  height: 10rem;
+  margin-top: 10rem;
+  padding: 0;
+}
+
+.page {
+  padding: 0;
+}
+
+.mgT80 {
+  margin-top: 8rem;
+}
+
+.Breadcrumbs {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+  line-height: 10rem;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.Breadcrumbs a {
+  color: black;
+  text-decoration: none;
+}
+
+.flex {
+  display: flex;
+}
+
+.avata {
+  border-radius: 50%;
+  width: 15rem;
+  height: 15rem;
+  object-fit: cover;
+}
+
+.bgAvata {
+  background-color: #f2f1ee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.4rem 0;
+  margin-bottom: 6rem;
+}
+
+.center {
+  text-align: center;
+}
+
+.name {
+  padding-top: 1rem;
+  font-size: 2.4rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+}
+
+.job {
+  font-family: "EB Garamond", serif;
+  font-size: 2rem;
+  color: #999;
+}
+
+.mgT48 {
+  margin-top: 4.8rem;
+}
+
+.mgT80 {
+  margin-top: 8rem;
+}
+
+.small {
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  color: #999;
+}
+
+.text {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+  margin-bottom: 4rem;
+}
+
+.h1 {
+  font-size: 3rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+  font-weight: 500;
+}
+
+.ul li {
+  list-style: none;
+  padding-top: 1rem;
+}
+
+.ul li a {
+  text-decoration: none;
+  color: #929292;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.ul li a:hover {
+  color: #000;
+}
+
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag span {
+  font-style: italic;
+  font-size: 2.2rem;
+  margin-right: 1.5rem;
+  margin-bottom: 0.6rem;
+  font-family: "EB Garamond", serif;
+}

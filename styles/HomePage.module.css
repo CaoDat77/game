@@ -1,0 +1,207 @@
+.container {
+  max-width: 130rem;
+  margin: 0 auto;
+}
+
+.page {
+  overflow: hidden;
+}
+
+.haha {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("/home/banner.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner {
+  margin-top: 8rem;
+  text-align: center;
+  color: white;
+}
+
+.border {
+  /* border: 1px solid #666; */
+  box-shadow: 0px 0px 7px 1px #666;
+}
+
+.bannerTitle {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.5rem;
+}
+
+.bannerText {
+  margin: 0 auto;
+  max-width: 96rem;
+  font-size: 5rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 400;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+  padding: 2rem;
+  /* max-width: 60rem; */
+}
+
+.maxwidth {
+  max-width: 50rem;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+
+.overflow {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  transform: translateY(-10%);
+}
+
+.absolute {
+  position: absolute;
+}
+
+.maxwidth2 {
+  overflow: hidden;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  /* height: 100%; */
+}
+
+.font22 {
+  font-size: 2.2rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.2rem;
+}
+
+.font {
+  font-size: 2.2rem;
+  font-family: "EB Garamond";
+}
+
+.mgT80 {
+  margin-top: 8rem;
+}
+
+.list {
+  height: 15.6rem;
+}
+
+.pdNone {
+  padding: 0 !important;
+  height: 50rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.nonePd {
+  padding: 0;
+}
+
+.home3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/home/home-3.jpg");
+  height: 100%;
+  background-size: cover;
+  transition: 0.3s;
+  padding: 0;
+}
+
+.home4 {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/home/home-4.jpg");
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  transition: 0.3s;
+  padding: 0;
+}
+
+.home5 {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/home/home-5.jpg");
+  height: 100%;
+  background-size: cover;
+  overflow: hidden;
+  transition: 0.3s;
+  padding: 0;
+}
+
+.text {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%);
+  text-decoration: none !important;
+  color: white;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
+}
+
+.text:hover {
+  color: white;
+}
+
+.home3:hover {
+  transform: scale(1.1);
+}
+
+.home4:hover {
+  transform: scale(1.1);
+}
+
+.home5:hover {
+  transform: scale(1.1);
+}
+
+.linkText {
+  color: #999;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #999;
+  transition: 0.3s;
+}
+
+.linkText:hover {
+  color: #222;
+  border-bottom: 1px solid #222;
+}
+
+.mgT16 {
+  margin-top: 1.6rem;
+}
+
+.blog {
+  font-size: 4rem;
+  font-family: "EB Garamond";
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 574px) {
+  .overflow {
+    width: 100%;
+    display: block;
+  }
+
+  .border {
+    box-shadow: none;
+  }
+}

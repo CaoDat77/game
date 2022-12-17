@@ -1,0 +1,132 @@
+.bg {
+  background-color: #f6f6f6;
+  margin-top: 12rem;
+}
+
+.flex {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1300px;
+}
+
+.inputText {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+}
+
+.content {
+  padding: 8rem 0;
+}
+
+.form {
+  width: 100%;
+}
+
+.input {
+  background-color: transparent;
+  border: 2px solid #dcdcdc;
+  outline: none;
+  color: #000;
+  font-size: 1.5rem;
+  font-family: "EB Garamond", serif;
+  padding: 1rem 0rem 1rem 2rem;
+  width: 100%;
+}
+
+.button {
+  font-family: "Poppins", sans-serif;
+  border: none;
+  font-size: 1.5rem;
+  color: #000;
+  background-color: transparent;
+  letter-spacing: 0.2rem;
+  font-family: "Poppins", sans-serif;
+  padding: 1.05rem 2rem 1.05rem 2rem;
+  outline: 0;
+  border: 1px solid #aeb89b;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.ul {
+  padding: 0;
+}
+
+.ul li {
+  font-size: 1.6rem;
+  margin-top: 1rem;
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.2rem;
+  color: #848484;
+  padding-bottom: 0.5rem;
+}
+
+.ul li a {
+  padding-bottom: 1rem;
+  color: #848484;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.h6 {
+  color: #000;
+  font-size: 2.2rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+}
+
+.logo {
+  font-size: 4rem;
+  letter-spacing: 0.4rem;
+  color: #000;
+  text-align: center;
+  font-weight: 700;
+}
+
+.dat {
+  font-size: 1.2rem;
+  text-align: center;
+  color: #666;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+}
+
+.ul li a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+  font-size: 1.6rem;
+}
+
+.succses {
+  margin-top: 1rem;
+  border: 1px solid #46b450;
+  color: #46b450;
+  font-size: 1.6rem;
+  padding: 1rem 2.7rem;
+  font-family: "EB Garamond", serif;
+}
+
+@media screen and (max-width: 574px) {
+  .content {
+    justify-content: unset;
+  }
+
+  .textCenter {
+    text-align: center;
+    margin-top: 2rem !important;
+  }
+}

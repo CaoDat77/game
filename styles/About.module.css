@@ -1,0 +1,149 @@
+.bg {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/us/us-1.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0 !important;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  padding: 0 !important;
+}
+
+.item {
+  display: flex;
+  margin: 2.5rem 0;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.textAbout {
+  padding: 0 2rem;
+}
+
+.title {
+  font-size: 1.6rem;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+.text {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.mgT80 {
+  margin-top: 8rem;
+}
+
+.info {
+  margin-top: 2rem;
+  padding-left: 3rem;
+  margin-bottom: 2rem;
+}
+
+.infoTitle {
+  letter-spacing: 0.3rem;
+  font-weight: 700;
+}
+
+.textInfo {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+  letter-spacing: 0.1rem;
+  margin: 0;
+}
+
+.textProject {
+  margin-top: 2rem;
+  padding-right: 3rem;
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+  letter-spacing: 0.1rem;
+  margin: 0;
+}
+
+.member {
+  position: relative;
+}
+
+.molda {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.socials {
+  padding: 3rem;
+  margin-bottom: 3rem;
+
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.socials a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.5rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.1rem;
+  transition: 0.5s;
+}
+
+.socials a:hover {
+  color: #999;
+}
+
+.member:hover .molda {
+  opacity: 1;
+}
+
+.itemMember {
+  margin: 1rem 0;
+}
+
+.name {
+  margin-top: 1rem;
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.3rem;
+}
+
+.job {
+  text-align: center;
+  font-family: "EB Garamond", serif;
+  font-size: 2.2rem;
+}
+
+@media screen and (max-width: 574px) {
+  .info {
+    padding-left: unset;
+  }
+  .textProject {
+    padding-right: 0;
+  }
+}

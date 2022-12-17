@@ -1,0 +1,30 @@
+.swiper {
+  padding: 10rem 0  ;
+  margin: 0;
+}
+
+.text {
+  text-align: center;
+  font-family: Poppins, sans-serif;
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+}
+
+.textSp {
+  font-family: "EB Garamond", serif;
+  font-size: 4rem;
+  font-weight: 400;
+}
+
+.swiperSlide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.textLast {
+  font-family: "EB Garamond", serif;
+  font-size: 2.4rem;
+}
