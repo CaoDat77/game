@@ -6,12 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 //   addItemToCart,
 //   selectProductById,
 // } from "../store/features/products/products.slice";
-import Image from "next/image";
+
 function Product({ product }) {
   console.log(product);
   return (
     <div className={styles.mB15}>
-      <Image className={styles.image} src={product.image} alt="" />
+      <img className={styles.image} src={product.image} alt="" />
       <button>Add to cart</button>
     </div>
   );

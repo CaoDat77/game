@@ -1,7 +1,7 @@
 import styles from "../../styles/Button.module.css";
 import Link from "next/link";
 
-function Button({ text }) {
+export function Button({ text }) {
   return (
     <Link href="/">
       <button className={styles.button}>{text}</button>
@@ -9,7 +9,7 @@ function Button({ text }) {
   );
 }
 
-function ButtonBlack({ text }) {
+export function ButtonBlack({ text }) {
   return (
     <Link href="/">
       <button className={styles.buttonBlack}>{text}</button>
@@ -17,4 +17,4 @@ function ButtonBlack({ text }) {
   );
 }
 
-export default { ButtonBlack, Button };
+// export default { ButtonBlack, Button };

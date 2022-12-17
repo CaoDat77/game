@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Sologan from "./componnet/Sologan";
 import { ButtonBlack } from "./componnet/Button";
 import Link from "next/link";
-import Image from "next/image";
+
 function About() {
   return (
     <Container fluid className={styles.page}>
@@ -17,7 +17,7 @@ function About() {
             <Col lg={6}>
               <div className={styles.item}>
                 <Col lg={1} xs={2} className={styles.center}>
-                  <Image className={styles.img} src="/us/icon-1.png" alt="" />
+                  <img className={styles.img} src="/us/icon-1.png" alt="" />
                 </Col>
                 <Col lg={11} xs={10}>
                   <div className={styles.textAbout}>
@@ -33,7 +33,7 @@ function About() {
             <Col lg={6}>
               <div className={styles.item}>
                 <Col lg={1} xs={2} className={styles.center}>
-                  <Image className={styles.img} src="/us/icon-2.png" alt="" />
+                  <img className={styles.img} src="/us/icon-2.png" alt="" />
                 </Col>
                 <Col lg={11} xs={10}>
                   <div className={styles.textAbout}>
@@ -51,7 +51,7 @@ function About() {
             <Col lg={6}>
               <div className={styles.item}>
                 <Col lg={1} xs={2} className={styles.center}>
-                  <Image className={styles.img} src="/us/icon-3.png" alt="" />
+                  <img className={styles.img} src="/us/icon-3.png" alt="" />
                 </Col>
                 <Col lg={11} xs={10}>
                   <div className={styles.textAbout}>
@@ -67,7 +67,7 @@ function About() {
             <Col lg={6}>
               <div className={styles.item}>
                 <Col lg={1} xs={2} className={styles.center}>
-                  <Image className={styles.img} src="/us/icon-4.png" alt="" />
+                  <img className={styles.img} src="/us/icon-4.png" alt="" />
                 </Col>
                 <Col lg={11} xs={10}>
                   <div className={styles.textAbout}>
@@ -88,7 +88,7 @@ function About() {
         <Container>
           <Row>
             <Col lg={7}>
-              <Image className={styles.img} src="/us/us-2.jpg" alt="" />
+              <img className={styles.img} src="/us/us-2.jpg" alt="" />
             </Col>
             <Col lg={5} className={styles.center}>
               <div className={styles.info}>
@@ -111,22 +111,22 @@ function About() {
         <Container>
           <Row>
             <Col lg={2}>
-              <Image src="/us/logo-1.png" alt="" />
+              <img src="/us/logo-1.png" alt="" />
             </Col>
             <Col lg={2}>
-              <Image src="/us/logo-2.png" alt="" />
+              <img src="/us/logo-2.png" alt="" />
             </Col>
             <Col lg={2}>
-              <Image src="/us/logo-3.png" alt="" />
+              <img src="/us/logo-3.png" alt="" />
             </Col>
             <Col lg={2}>
-              <Image src="/us/logo-4.png" alt="" />
+              <img src="/us/logo-4.png" alt="" />
             </Col>
             <Col lg={2}>
-              <Image src="/us/logo-5.png" alt="" />
+              <img src="/us/logo-5.png" alt="" />
             </Col>
             <Col lg={2}>
-              <Image src="/us/logo-1.png" alt="" />
+              <img src="/us/logo-1.png" alt="" />
             </Col>
           </Row>
         </Container>
@@ -149,7 +149,7 @@ function About() {
               </div>
             </Col>
             <Col lg={7}>
-              <Image className={styles.img} src="/us/us-3.jpg" alt="" />
+              <img className={styles.img} src="/us/us-3.jpg" alt="" />
             </Col>
           </Row>
         </Container>
@@ -162,7 +162,7 @@ function About() {
             <Col lg={3}>
               <div className={styles.itemMember}>
                 <div className={styles.member}>
-                  <Image className={styles.img} src="/us/member-1.jpg" alt="" />
+                  <img className={styles.img} src="/us/member-1.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
                       <Link href="/">FB</Link>
@@ -178,7 +178,7 @@ function About() {
             <Col lg={3}>
               <div className={styles.itemMember}>
                 <div className={styles.member}>
-                  <Image className={styles.img} src="/us/member-2.jpg" alt="" />
+                  <img className={styles.img} src="/us/member-2.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
                       <Link href="/">FB</Link>
@@ -194,7 +194,7 @@ function About() {
             <Col lg={3}>
               <div className={styles.itemMember}>
                 <div className={styles.member}>
-                  <Image className={styles.img} src="/us/member-3.jpg" alt="" />
+                  <img className={styles.img} src="/us/member-3.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
                       <Link href="/">FB</Link>
@@ -210,7 +210,7 @@ function About() {
             <Col lg={3}>
               <div className={styles.itemMember}>
                 <div className={styles.member}>
-                  <Image className={styles.img} src="/us/member-4.jpg" alt="" />
+                  <img className={styles.img} src="/us/member-4.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
                       <Link href="/">FB</Link>
@@ -229,7 +229,7 @@ function About() {
             <Col lg={3}>
               <div className={styles.itemMember}>
                 <div className={styles.member}>
-                  <Image className={styles.img} src="/us/member-5.jpg" alt="" />
+                  <img className={styles.img} src="/us/member-5.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
                       <Link href="/">FB</Link>
@@ -245,7 +245,7 @@ function About() {
             <Col lg={3}>
               <div className={styles.itemMember}>
                 <div className={styles.member}>
-                  <Image className={styles.img} src="/us/member-6.jpg" alt="" />
+                  <img className={styles.img} src="/us/member-6.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
                       <Link href="/">FB</Link>
