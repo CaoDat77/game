@@ -91,10 +91,3 @@ function Shop() {
 }
 
 export default Shop;
-async function haha() {
-  const response = await fetch("http://localhost:3002/products");
-  const data = await response.json();
-  console.log(data);
-  return data;
-}
-haha();
