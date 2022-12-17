@@ -2,7 +2,7 @@ import styles from "../styles/About.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sologan from "./componnet/Sologan";
-import { ButtonBlack } from "./componnet/Button";
+import  ButtonBlack  from "./componnet/ButtonBlack";
 import Link from "next/link";
 
 function About() {

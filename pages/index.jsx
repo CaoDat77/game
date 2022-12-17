@@ -1,7 +1,8 @@
 import styles from "../styles/HomePage.module.css";
 import { Col, Row, Container } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, ButtonBlack } from "./componnet/Button";
+import Button from "./componnet/Button";
+import ButtonBlack from "./componnet/ButtonBlack";
 import "bootstrap/dist/css/bootstrap.min.css";
 import List from "./componnet/List";
 import Link from "next/link";

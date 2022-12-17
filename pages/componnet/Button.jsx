@@ -9,12 +9,6 @@ export function Button({ text }) {
   );
 }
 
-export function ButtonBlack({ text }) {
-  return (
-    <Link href="/">
-      <button className={styles.buttonBlack}>{text}</button>
-    </Link>
-  );
-}
 
-// export default { ButtonBlack, Button };
+
+export default Button;
