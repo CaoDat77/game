@@ -19,7 +19,7 @@ function Product({ product }) {
 
   return (
     <div className={styles.mB15}>
-      <img className={styles.image} src={product.image} alt="" />
+      <img className={styles.image} alt="" />
       <button onClick={handleAddToCartClick}>Add to cart</button>
     </div>
   );
