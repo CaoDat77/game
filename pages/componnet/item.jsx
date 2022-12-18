@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addItem,
   selectProductById,
-} from "../store/features/products/products.slice";
+} from "../../store/features/products/products.slice";
 
 function Product({ product }) {
   const { productId } = useParams();

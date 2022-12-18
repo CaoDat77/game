@@ -12,7 +12,7 @@ import {
   loadProduct,
   loadProductById,
   selectProductStatus,
-} from "./store/features/products/products.slice";
+} from "../store/features/products/products.slice";
 
 function Shop() {
   const dispatch = useDispatch();
