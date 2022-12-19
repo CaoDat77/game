@@ -50,8 +50,6 @@ const productsSlice = createSlice({
 
   extraReducers: (builder) => {
     builder.addCase(loadProduct.fulfilled, (state, action) => {
-      console.log("LOLOLOL");
-      console.log(action, state); //Không hiện thông tin
       return {
         ...state,
         data: action.payload,
@@ -85,6 +83,7 @@ export const selectProductsList = (state) => {
   );
 
   return {
+    filteredProducts,
     // categories: state.categories.data,
     products: productsByPage,
     currentPage: state.products.currentPage,

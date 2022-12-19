@@ -2,11 +2,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: fixed;
   width: 130rem;
   margin: 0 auto;
   margin-top: 2rem;
   padding: 0;
+}
+
+.navBg {
+  position: fixed;
+  z-index: 9999;
+  transition: 0.2s;
 }
 
 .logo {

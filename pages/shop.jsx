@@ -13,16 +13,33 @@ import {
   loadProductById,
   selectProductStatus,
 } from "../store/features/products/products.slice";
+import { useEffect } from "react";
+import { collection, getFirestore, getDocs, query } from "firebase/firestore";
+import { app } from "../lib/firebase";
 
 function Shop() {
   const dispatch = useDispatch();
-
-  React.useEffect(() => {
+  useEffect(() => {
     dispatch(loadProduct({ productId: 1 }));
   }, []);
-
   const { products, currentPage, totalPage, pageChanged } =
     useSelector(selectProductsList);
+
+  // useEffect(() => {
+  //   const q = query(collection(getFirestore(app), "store"));
+  //   getDocs(q)
+  //     .then((snapshots) => {
+  //       const listItem = snapshots.docs.map((item) => ({
+  //         id: item.id,
+  //         ...item.data(),
+  //       }));
+
+  //       console.log(listItem);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //     });
+  // }, []);
 
   const paginationItems = new Array(totalPage)
     .fill(null)
