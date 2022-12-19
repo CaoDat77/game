@@ -13,7 +13,7 @@ const GameDetail = ({ data }) => {
   return (
     <Container>
       {data.map((item) => (
-        <h1>{item.name}</h1>
+        <h1 key={item.id}>{item.name}</h1>
       ))}
     </Container>
   );
