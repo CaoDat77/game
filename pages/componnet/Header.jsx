@@ -12,6 +12,7 @@ function Header() {
   const close = React.useRef();
   const nav = React.useRef();
   const ul = React.useRef();
+  const list = React.useRef();
   React.useEffect(() => {
     const handleClose = () => {
       menu.current.style.transform = "translateX(-100%)";
@@ -24,12 +25,14 @@ function Header() {
     open.current.addEventListener("click", handleOpen);
 
     let navigation = nav.current;
-
+    let listNav = list.current;
     const handleScroll = () => {
       if (window.scrollY > 200) {
         navigation.style.backgroundColor = "#999";
+        listNav.style.marginTop = "0";
       } else {
         navigation.style.backgroundColor = "unset";
+        listNav.style.marginTop = "2rem";
       }
     };
     console.log(navigation);
@@ -68,7 +71,7 @@ function Header() {
         </div>
       </div>
       <Container fluid ref={nav} className={styles.navBg}>
-        <Container className={styles.nav}>
+        <Container className={styles.nav} ref={list}>
           <MenuTwoToneIcon className={styles.menu} ref={open} />
           <div className={styles.logo}>
             <Link href="/">CUTHBERT</Link>

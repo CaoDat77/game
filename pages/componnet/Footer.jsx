@@ -17,15 +17,7 @@ function Footer() {
     },
   });
 
-  // const email = register("email", {
-  //   required: "Please fill out this field.",
-  //   validate: {
-  //     isEmail: (v) =>
-  //       /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-  //         v
-  //       ) || "Please enter an email address.",
-  //   },
-  // });
+
 
   return (
     <Container fluid className={styles.bg}>

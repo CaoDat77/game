@@ -6,6 +6,7 @@
   margin: 0 auto;
   margin-top: 2rem;
   padding: 0;
+  transition: 0.3s;
 }
 
 .navBg {

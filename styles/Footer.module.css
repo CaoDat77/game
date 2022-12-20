@@ -109,6 +109,7 @@
 .error {
   color: red;
   font-size: 1.6rem;
+  font-family: "EB Garamond", serif;
 }
 
 .succses {

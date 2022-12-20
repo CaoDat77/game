@@ -76,3 +76,27 @@ const cartSlice = createSlice({
 export const cartReducer = cartSlice.reducer;
 export const { addItem, incQty, decQty, removeItem, clearItem } =
   cartSlice.actions;
+
+export const selectCart = (state) => {
+  const products = state.products.data;
+  const cart = state.cart;
+
+  const items = cart.map((item) => ({
+    product: products.find((product) => product.id == item.productId),
+    quantity: item.quantity,
+  }));
+
+  const totalPrice = items.reduce(
+    (total, item) => (total += item.product.price * item.quantity),
+    0
+  );
+
+  return {
+    items,
+    totalPrice,
+    incQty,
+    decQty,
+    removeItem,
+    clearItem,
+  };
+};

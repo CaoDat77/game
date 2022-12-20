@@ -1,0 +1,64 @@
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.bg {
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/us/us-1.jpg");
+  background-size: cover;
+  margin: 0;
+  padding: 0 !important;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  padding: 0 !important;
+}
+
+.mtT80 {
+  margin-top: 8rem;
+}
+
+.text {
+  font-size: 2.4rem;
+  font-family: "EB Garamond", serif;
+  letter-spacing: 0.1rem;
+}
+
+.cate {
+  font-family: "EB Garamond", serif;
+  font-size: 2.2rem;
+  color: #666;
+  letter-spacing: 0.3rem;
+}
+
+.h3 {
+  margin-top: 3.2rem;
+  letter-spacing: 0.3rem;
+}
+
+.tag {
+  margin-top: 1rem;
+  letter-spacing: 0.3rem;
+}
+
+.row {
+  justify-content: space-evenly;
+}
+
+.social {
+  margin-top: 1rem;
+}
+
+.link a {
+  text-decoration: none;
+  color: #666;
+  margin: 0 1rem;
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+}
