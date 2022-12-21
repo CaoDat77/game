@@ -1,0 +1,58 @@
+.page {
+  background-color: white;
+  padding: 0 !important;
+}
+
+.bg {
+  margin: 0;
+  padding: 0 !important;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/contact/contact-1.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form div div input {
+  padding: 1.5rem 3.5rem;
+  font-size: 2rem;
+  font-family: "EB Garamond", serif;
+  outline: none;
+  width: 100%;
+  border: none;
+  border: 1px solid #dadada;
+  color: #666;
+}
+
+.form div label {
+  font-family: "EB Garamond", serif;
+  font-size: 2.2rem;
+}
+
+.form div {
+  margin-top: 2rem;
+}
+
+.mT80 {
+  margin-top: 8rem;
+}
+
+.note {
+  font-family: "EB Garamond", serif;
+  font-size: 2.2rem;
+}
+
+.right {
+  margin-top: 2rem;
+}
+
+.textarea {
+  width: 100%;
+  border: none;
+  border: 1px solid #dadada;
+  padding: 1.5rem 3.5rem;
+  color: #666;
+  font-family: "EB Garamond", serif;
+}

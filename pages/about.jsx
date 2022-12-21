@@ -2,13 +2,13 @@ import styles from "../styles/About.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Sologan from "./componnet/Sologan";
-import  ButtonBlack  from "./componnet/ButtonBlack";
+import ButtonBlack from "./componnet/ButtonBlack";
 import Link from "next/link";
 
 function About() {
   return (
     <Container fluid className={styles.page}>
-      <Container fluid className={styles.bg}>
+      <Container fluid className={styles.bg} id="#">
         <Sologan text="ABOUT US" />
       </Container>
       <section>
@@ -165,9 +165,9 @@ function About() {
                   <img className={styles.img} src="/us/member-1.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
-                      <Link href="/">FB</Link>
-                      <Link href="/">IG</Link>
-                      <Link href="/">TW</Link>
+                      <Link href="#">FB</Link>
+                      <Link href="#">IG</Link>
+                      <Link href="#">TW</Link>
                     </div>
                   </div>
                 </div>
@@ -181,9 +181,9 @@ function About() {
                   <img className={styles.img} src="/us/member-2.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
-                      <Link href="/">FB</Link>
-                      <Link href="/">IG</Link>
-                      <Link href="/">TW</Link>
+                      <Link href="#">FB</Link>
+                      <Link href="#">IG</Link>
+                      <Link href="#">TW</Link>
                     </div>
                   </div>
                 </div>
@@ -197,9 +197,9 @@ function About() {
                   <img className={styles.img} src="/us/member-3.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
-                      <Link href="/">FB</Link>
-                      <Link href="/">IG</Link>
-                      <Link href="/">TW</Link>
+                      <Link href="#">FB</Link>
+                      <Link href="#">IG</Link>
+                      <Link href="#">TW</Link>
                     </div>
                   </div>
                 </div>
@@ -213,9 +213,9 @@ function About() {
                   <img className={styles.img} src="/us/member-4.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
-                      <Link href="/">FB</Link>
-                      <Link href="/">IG</Link>
-                      <Link href="/">TW</Link>
+                      <Link href="#">FB</Link>
+                      <Link href="#">IG</Link>
+                      <Link href="#">TW</Link>
                     </div>
                   </div>
                 </div>
@@ -232,9 +232,9 @@ function About() {
                   <img className={styles.img} src="/us/member-5.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
-                      <Link href="/">FB</Link>
-                      <Link href="/">IG</Link>
-                      <Link href="/">TW</Link>
+                      <Link href="#">FB</Link>
+                      <Link href="#">IG</Link>
+                      <Link href="#">TW</Link>
                     </div>
                   </div>
                 </div>
@@ -248,9 +248,9 @@ function About() {
                   <img className={styles.img} src="/us/member-6.jpg" alt="" />
                   <div className={styles.molda}>
                     <div className={styles.socials}>
-                      <Link href="/">FB</Link>
-                      <Link href="/">IG</Link>
-                      <Link href="/">TW</Link>
+                      <Link href="#">FB</Link>
+                      <Link href="#">IG</Link>
+                      <Link href="#">TW</Link>
                     </div>
                   </div>
                 </div>

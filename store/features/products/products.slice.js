@@ -30,24 +30,6 @@ const productsSlice = createSlice({
     },
   },
 
-  addItem: (state, { payload: { productId, quantity } }) => {
-    const itemIndex = state.findIndex((item) => item.productId == productId);
-
-    if (itemIndex !== -1) {
-      const newItem = {
-        ...state[itemIndex],
-        quantity: state[itemIndex].quantity + quantity,
-      };
-
-      const newState = [...state];
-      newState[itemIndex] = newItem;
-
-      return newState;
-    } else {
-      return [...state, { productId, quantity }];
-    }
-  },
-
   extraReducers: (builder) => {
     builder.addCase(loadProduct.fulfilled, (state, action) => {
       return {
@@ -60,7 +42,7 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { pageChanged, displayChanged, filterChanged, addItem } =
+export const { pageChanged, displayChanged, filterChanged } =
   productsSlice.actions;
 
 export const selectAllProducts = (state) => state.products.data;
@@ -83,7 +65,6 @@ export const selectProductsList = (state) => {
   );
 
   return {
-    filteredProducts,
     // categories: state.categories.data,
     products: productsByPage,
     currentPage: state.products.currentPage,

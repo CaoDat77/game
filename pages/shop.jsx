@@ -10,36 +10,23 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   selectProductsList,
   loadProduct,
-  loadProductById,
-  selectProductStatus,
 } from "../store/features/products/products.slice";
 import { useEffect } from "react";
-import { collection, getFirestore, getDocs, query } from "firebase/firestore";
-import { app } from "../lib/firebase";
-
+import { selectAllProducts } from "../store/features/products/products.slice";
+import { searchFilterChange } from "../store/features/products/filter.slice";
 function Shop() {
   const dispatch = useDispatch();
+  const [searchText, setSearchText] = React.useState("");
+  const handleSearchTextChange = (e) => {
+    setSearchText(e.target.value);
+    dispatch(searchFilterChange(e.target.value));
+  };
+
   useEffect(() => {
     dispatch(loadProduct({ productId: 1 }));
   }, []);
   const { products, currentPage, totalPage, pageChanged } =
     useSelector(selectProductsList);
-
-  // useEffect(() => {
-  //   const q = query(collection(getFirestore(app), "store"));
-  //   getDocs(q)
-  //     .then((snapshots) => {
-  //       const listItem = snapshots.docs.map((item) => ({
-  //         id: item.id,
-  //         ...item.data(),
-  //       }));
-
-  //       console.log(listItem);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }, []);
 
   const paginationItems = new Array(totalPage)
     .fill(null)
@@ -64,9 +51,11 @@ function Shop() {
             <Col lg={4}>
               <div className={styles.input}>
                 <input
+                  value={searchText}
                   className={styles.search}
                   type="text"
                   placeholder="Search"
+                  onChange={handleSearchTextChange}
                 />
                 <div className={styles.icon}>
                   <SearchIcon />

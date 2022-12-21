@@ -9,8 +9,18 @@ import ButtonBlack from "../componnet/ButtonBlack";
 import Link from "next/link";
 import { addItem } from "../../store/features/cart/cart.slice";
 import { toast } from "react-toastify";
+import { useParams } from "react-router-dom";
 const ItemDetail = ({ data }) => {
   const dispatch = useDispatch();
+  const detail = useParams();
+  console.log(detail);
+  const [searchText, setSearchText] = React.useState([]);
+
+  const handleAddToCartClick = () => {
+    dispatch(addItem({ productId: data.id, quantity: 1 }));
+    // setSearchText({ data });
+    // console.log(searchText);
+  };
 
   return (
     <Container fluid className={styles.page}>
@@ -34,14 +44,7 @@ const ItemDetail = ({ data }) => {
                     ignota principes ut vis, ullum nostrud ne pri.
                   </p>
 
-                  <Button
-                    type="button"
-                    onClick={
-                      (() =>
-                        dispatch(addItem({ productId: item.id, quantity: 1 })),
-                      toast("Thêm sản phẩm vào giỏ hàng thành cmn công"))
-                    }
-                  >
+                  <Button type="button" onClick={handleAddToCartClick}>
                     ADD TO CART
                   </Button>
                   <h3 className={styles.h3}>
