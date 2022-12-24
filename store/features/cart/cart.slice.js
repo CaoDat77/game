@@ -9,85 +9,70 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addItem: (state, { payload: itemId }) => {
-      // const itemIndex = state.findIndex((item) => item.productId == productId);
-      const itemIndex = state.findIndex((item) => item == itemId);
+    addItem: (state, { payload: { productId, quantity } }) => {
+      const itemIndex = state.findIndex((item) => item.productId == productId);
       console.log(state);
-      if (itemIndex !== 1) {
-        toast.info("Khóa học đã có trong giỏ hàng!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+      if (itemIndex !== -1) {
+        const newItem = {
+          ...state[itemIndex],
+          quantity: state[itemIndex].quantity + quantity,
+        };
 
-        return [...state];
+        const newState = [...state];
+        newState[itemIndex] = newItem;
+
+        return newState;
       } else {
-        const newState = [...state, itemId];
-        toast.success("🦄 Thêm vào giỏ hàng thành công!", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        return [...state, { productId, quantity }];
+      }
+    },
+
+    incQty: (state, action) => {
+      const itemIndex = state.findIndex(
+        (item) => item.productId === action.payload
+      );
+
+      if (itemIndex !== -1) {
+        const newState = [...state];
+
+        const newItem = {
+          ...newState[itemIndex],
+          quantity: newState[itemIndex].quantity + 1,
+        };
+
+        newState[itemIndex] = newItem;
+
         return newState;
       }
     },
 
-    // incQty: (state, action) => {
-    //   const itemIndex = state.findIndex(
-    //     (item) => item.productId === action.payload
-    //   );
+    decQty: (state, action) => {
+      const index = state.findIndex(
+        (item) => item.productId === action.payload
+      );
 
-    //   if (itemIndex !== -1) {
-    //     const newState = [...state];
+      if (index !== -1 && state[index].quantity > 1) {
+        const newState = [...state];
 
-    //     const newItem = {
-    //       ...newState[itemIndex],
-    //       quantity: newState[itemIndex].quantity + 1,
-    //     };
+        const newItem = { ...newState[index] };
+        newItem.quantity -= 1;
 
-    //     newState[itemIndex] = newItem;
+        newState[index] = newItem;
 
-    //     return newState;
-    //   }
-    // },
+        return newState;
+      }
+    },
 
-    // decQty: (state, action) => {
-    //   const index = state.findIndex(
-    //     (item) => item.productId === action.payload
-    //   );
+    removeItem: (state, action) => {
+      const newState = state.filter(
+        (item) => item.productId !== action.payload
+      );
+      return newState;
+    },
 
-    //   if (index !== -1 && state[index].quantity > 1) {
-    //     const newState = [...state];
-
-    //     const newItem = { ...newState[index] };
-    //     newItem.quantity -= 1;
-
-    //     newState[index] = newItem;
-
-    //     return newState;
-    //   }
-    // },
-
-    // removeItem: (state, action) => {
-    //   const newState = state.filter(
-    //     (item) => item.productId !== action.payload
-    //   );
-    //   return newState;
-    // },
-
-    // clearItem: (state, action) => {
-    //   return initialState;
-    // },
+    clearItem: (state, action) => {
+      return initialState;
+    },
   },
 });
 
@@ -96,38 +81,24 @@ export const { addItem, incQty, decQty, removeItem, clearItem } =
   cartSlice.actions;
 
 export const selectCart = (state) => {
-  // const items = cart.map((item) => ({
-  //   product: products.find((product) => product.id == item.productId),
-  //   quantity: item.quantity,
-  // }));
-
-  // const API = "http://localhost:3002/products";
-  // fetch(API)
-  //   .then((res) => res.json())
-  //   .then((data) => data);
-
-  const listItem = useSelector(selectAllProducts);
-
+  const Products = state.products.data;
   const cart = state.cart;
-  const cartItems =
-    cart.length === 0
-      ? []
-      : cart.map((item) => {
-          return listItem.find((product) => product.id == item);
-        });
 
-  // const totalPrice = items.reduce(
-  //   (total, item) => (total += item.product.price * item.quantity),
-  //   0
-  // );
+  const items = cart.map((item) => ({
+    product: Products.find((product) => product.id == item.productId),
+    quantity: item.quantity,
+  }));
 
+  const totalPrice = items.reduce(
+    (total, item) => (total += item.product.price * item.quantity),
+    0
+  );
   return {
-    // totalPrice,
+    items,
+    totalPrice,
     incQty,
     decQty,
     removeItem,
     clearItem,
-    cart,
-    cartItems,
   };
 };

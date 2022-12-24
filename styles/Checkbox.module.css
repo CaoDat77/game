@@ -39,6 +39,10 @@
   margin-top: 8rem;
 }
 
+.mT20 {
+  margin-top: 2rem;
+}
+
 .note {
   font-family: "EB Garamond", serif;
   font-size: 2.2rem;
@@ -49,10 +53,38 @@
 }
 
 .textarea {
+  font-size: 2rem;
   width: 100%;
   border: none;
   border: 1px solid #dadada;
   padding: 1.5rem 3.5rem;
   color: #666;
   font-family: "EB Garamond", serif;
+  outline: none;
+}
+
+.error {
+  font-size: 1.6rem;
+  color: red;
+  font-family: "EB Garamond", serif;
+}
+
+.line {
+  border-bottom: 1px solid #666;
+}
+
+.line div {
+  padding: 1rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.line div p {
+  margin-bottom: 0;
+}
+
+.text {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+  font-weight: 100;
 }

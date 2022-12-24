@@ -6,3 +6,90 @@
 .mB15 {
   margin-top: 1.5rem;
 }
+
+.cart {
+  position: relative;
+}
+
+.add {
+  color: white;
+  font-size: 2.2rem;
+  cursor: pointer;
+}
+
+.molda {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+  transition: 0.5s;
+}
+
+.hoveritem {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart:hover .molda {
+  opacity: 1;
+  /* transition: 1s; */
+}
+
+.line {
+  width: 0;
+  height: 1px;
+  border-bottom: 2px solid #fff;
+  transition: 0.5s;
+}
+
+.add:hover .line {
+  width: 100%;
+}
+
+.info {
+  text-align: center;
+}
+.info p {
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+
+.mobile button {
+  display: none;
+}
+
+.view {
+  text-align: center;
+  font-size: 2.2rem;
+  text-decoration: none;
+  color: white;
+}
+
+.view:hover {
+  color: white;
+}
+
+.view:hover .line {
+  width: 100%;
+}
+
+@media screen and (max-width: 574px) {
+  .info {
+    margin-top: 2rem;
+  }
+
+  .mobile button {
+    display: block;
+  }
+
+  .mobile {
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -21,6 +21,7 @@ const productsSlice = createSlice({
     pageChanged: (state, action) => {
       return { ...state, currentPage: action.payload };
     },
+
     filterChanged: (state, action) => {
       return {
         ...state,
@@ -53,7 +54,7 @@ export const selectProductStatus = (state) =>
 export const selectProductsList = (state) => {
   const filteredProducts = state.products.data.filter((product) => {
     if (state.products.filter.length === 0) return true;
-    else return state.products.filter.includes(product.category);
+    else return state.products.filter.includes(product.categories);
   });
 
   const total = filteredProducts.length;
@@ -65,7 +66,6 @@ export const selectProductsList = (state) => {
   );
 
   return {
-    // categories: state.categories.data,
     products: productsByPage,
     currentPage: state.products.currentPage,
     totalPage,

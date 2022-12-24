@@ -1,0 +1,103 @@
+.bg {
+  margin: 0;
+  padding: 0 !important;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("/contact/contact-1.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page {
+  background-color: white;
+  padding: 0 !important;
+}
+
+.mT80 {
+  margin-top: 8rem;
+}
+
+.mT20 {
+  margin-top: 2rem;
+}
+
+.image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.center {
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #999;
+}
+
+.line {
+  border-bottom: 1px solid #999;
+}
+
+.name {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+  font-weight: 500;
+}
+
+.th {
+  font-size: 1.8rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3rem;
+  font-weight: 600;
+}
+
+.delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete svg path {
+  font-size: 2.5rem;
+  color: black;
+}
+
+.delete svg:hover {
+  background-color: #dadada;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.price {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+}
+
+.quantity {
+  display: flex;
+}
+
+.quantity p {
+  font-size: 2.2rem;
+  padding: 1rem;
+}
+
+.quantity p:first-child {
+  cursor: pointer;
+}
+
+.quantity p:last-child {
+  cursor: pointer;
+}
+
+.total {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.money {
+  font-size: 2.2rem;
+  font-family: "EB Garamond", serif;
+}

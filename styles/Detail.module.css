@@ -62,3 +62,29 @@
   font-size: 2.2rem;
   font-family: "EB Garamond", serif;
 }
+
+.flex {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+
+.p {
+  display: flex;
+}
+
+.p p {
+  margin: 0;
+  font-size: 2.2rem;
+  padding: 1rem;
+  margin: 0 1rem;
+}
+
+.flex button {
+  margin-top: 0;
+}
+
+.flex:first-child:hover {
+  cursor: pointer;
+}

@@ -34,7 +34,9 @@ function Home() {
                     sollicitudin tempor id eu altricies mi quis hendrerit. Sed
                     id semper risus.
                   </p>
-                  <ButtonBlack text="VIEW MORE" />
+                  <Link href="/about">
+                    <ButtonBlack text="VIEW MORE" />
+                  </Link>
                 </div>
               </div>
             </Col>
@@ -126,7 +128,9 @@ function Home() {
                       WORK SPACES AND GARDENS
                     </Link>
                   </div>
-                  <ButtonBlack text="VIEW MORE" />
+                  <Link href="/contact">
+                    <ButtonBlack text="VIEW MORE" />
+                  </Link>
                 </div>
               </div>
             </Col>

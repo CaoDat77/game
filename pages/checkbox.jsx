@@ -5,7 +5,13 @@ import Sologan from "./componnet/Sologan";
 import { style } from "@mui/system";
 import { useForm } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
+import { selectCart } from "../store/features/cart/cart.slice";
+import { useDispatch, useSelector } from "react-redux";
+import Accordion from "react-bootstrap/Accordion";
+
 function CheckBox() {
+  const { items } = useSelector(selectCart);
+
   const {
     register,
     handleSubmit,
@@ -20,17 +26,27 @@ function CheckBox() {
     },
   });
 
-  const text = register("text", {
+  const text = register("city", {
     required: "Please fill out this field.",
     validate: {
       length: (v) =>
         (2 <= v.toLowerCase().trim().length &&
-          v.toLowerCase().trim().length <= 50) ||
+          v.toLowerCase().trim().length <= 80) ||
         "Please enter your city",
     },
   });
 
   const first = register("first", {
+    required: "Please fill out this field.",
+    validate: {
+      length: (v) =>
+        (2 <= v.toLowerCase().trim().length &&
+          v.toLowerCase().trim().length <= 50) ||
+        "Please enter your first name",
+    },
+  });
+
+  const last = register("last", {
     required: "Please fill out this field.",
     validate: {
       length: (v) =>
@@ -87,7 +103,7 @@ function CheckBox() {
                 <div className="">
                   <div className="">
                     <label htmlFor="last"> Last name *</label>
-                    <input {...first} type="text" name="last" />
+                    <input {...last} type="text" name="last" />
                   </div>
                   <p className={styles.error}> {errors.first?.message}</p>
                 </div>
@@ -112,6 +128,7 @@ function CheckBox() {
                     <label htmlFor="address">Street address *</label>
                     <input type="text" name="address" />
                   </div>
+                  <p className={styles.error}> {errors.text?.message}</p>
                 </div>
 
                 <div className="">
@@ -134,8 +151,7 @@ function CheckBox() {
                   </div>
                   <p className={styles.error}> {errors.email?.message}</p>
                 </div>
-
-                <button>SEND MESSAGE</button>
+                <button>hahaha</button>
               </form>
             </Col>
             <Col lg={6}>
@@ -152,8 +168,71 @@ function CheckBox() {
                   />
                 </div>
               </form>
+
+              <h2 className={styles.mT20}>YOUR ORDER</h2>
+              <div>
+                <Row className={styles.line}>
+                  <Col lg={8}>PRODUCT</Col>
+                  <Col lg={4}>SUBTOTAL</Col>
+                </Row>
+
+                {items.map((item) => (
+                  <Row className={styles.line} key={item.id}>
+                    <Col lg={8}>
+                      <p className={styles.text}>
+                        {item.product.name} × {item.quantity}
+                      </p>
+                    </Col>
+                    <Col lg={4}>
+                      <p className={styles.text}>
+                        ${item.product.price * item.quantity}
+                      </p>
+                    </Col>
+                  </Row>
+                ))}
+
+                <Row>
+                  <Accordion defaultActiveKey="0">
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>Accordion Item #1</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum.
+                      </Accordion.Body>
+                    </Accordion.Item>
+                    <Accordion.Item eventKey="1">
+                      <Accordion.Header>Accordion Item #2</Accordion.Header>
+                      <Accordion.Body>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                        sed do eiusmod tempor incididunt ut labore et dolore
+                        magna aliqua. Ut enim ad minim veniam, quis nostrud
+                        exercitation ullamco laboris nisi ut aliquip ex ea
+                        commodo consequat. Duis aute irure dolor in
+                        reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+                        non proident, sunt in culpa qui officia deserunt mollit
+                        anim id est laborum.
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </Row>
+              </div>
             </Col>
           </Row>
+          {isSubmitSuccessful ? (
+            <div className={styles.formMessage}>
+              Thank you for your message. It has been sent.
+            </div>
+          ) : (
+            ""
+          )}
         </Container>
       </section>
     </Container>

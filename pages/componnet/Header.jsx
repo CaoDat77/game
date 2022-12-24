@@ -39,6 +39,10 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
   }, []);
 
+  const closeMenu = () => {
+    menu.current.style.transform = "translateX(-100%)";
+  };
+
   return (
     <Container fluid className={styles.center}>
       <div className={styles.menuNav} ref={menu}>
@@ -49,23 +53,23 @@ function Header() {
           </div>
         </div>
         <div className={styles.navMb}>
-          <Link href="/">
+          <Link href="/" onClick={closeMenu}>
             <div className="">HOME</div>
           </Link>
 
-          <Link href="/about">
+          <Link href="/about" onClick={closeMenu}>
             <div className="">ABOUT</div>
           </Link>
 
-          <Link href="/contact">
+          <Link href="/contact" onClick={closeMenu}>
             <div className="">CONTACT</div>
           </Link>
 
-          <Link href="/blog">
+          <Link href="/blog" onClick={closeMenu}>
             <div className="">BLOG</div>
           </Link>
 
-          <Link href="/shop">
+          <Link href="/products" onClick={closeMenu}>
             <div className="">SHOP</div>
           </Link>
         </div>
@@ -91,7 +95,7 @@ function Header() {
               <Link href="/blog">BLOG</Link>
             </li>
             <li>
-              <Link href="/shop">SHOP</Link>
+              <Link href="/products">SHOP</Link>
             </li>
             <li>
               <Link href="/cart">
