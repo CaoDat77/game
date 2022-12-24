@@ -103,7 +103,9 @@ export default ItemDetail;
 
 //staticPath - Có bao nhiêu sản phẩm
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:3002/products");
+  const res = await fetch(
+    "https://63a72e867989ad3286eb9587.mockapi.io/products"
+  );
   const data = await res.json();
 
   return {
@@ -116,7 +118,9 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const productId = context.params.gid;
 
-  const res = await fetch("http://localhost:3002/products/" + productId);
+  const res = await fetch(
+    "https://63a72e867989ad3286eb9587.mockapi.io/products/" + productId
+  );
   const data = await res.json();
   return {
     props: {

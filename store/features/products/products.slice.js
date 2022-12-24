@@ -9,7 +9,9 @@ const PAGE_SIZE = 9;
 export const loadProduct = createAsyncThunk(
   "products",
   async (args, thunkApi) => {
-    const response = await fetch("http://localhost:3002/products");
+    const response = await fetch(
+      "https://63a72e867989ad3286eb9587.mockapi.io/products"
+    );
     const data = await response.json();
     return data;
   }

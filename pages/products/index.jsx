@@ -27,7 +27,7 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import { searchFilterChange } from "../../store/features/products/filter.slice";
+
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import qs from "query-string";
