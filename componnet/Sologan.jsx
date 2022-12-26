@@ -1,8 +1,10 @@
-import styles from "../../styles/HomePage.module.css";
+import styles from "../styles/HomePage.module.css";
 import { Button } from "./Button";
+import "animate.css";
+import "aos";
 function Sologan({ text }) {
   return (
-    <div className="">
+    <div className="" data-aos="fade-up">
       <div className={styles.banner}>
         <p className={styles.bannerTitle}>{text}</p>
         <p className={styles.bannerText}>

@@ -1,6 +1,6 @@
 import styles from "../styles/Contact.module.css";
 import { Container, Row, Col } from "react-bootstrap";
-import Sologan from "./componnet/Sologan";
+import Sologan from "../componnet/Sologan";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Link from "next/link";
 import { useForm } from "react-hook-form";

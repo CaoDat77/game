@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Container, Row, Col, Pagination, Form } from "react-bootstrap";
 import styles from "../../styles/Shop.module.css";
-import Sologan from "../componnet/Sologan";
-import Product from "../componnet/item";
+import Sologan from "../../componnet/Sologan";
+import Product from "../../componnet/item";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
@@ -11,7 +11,7 @@ import {
   selectProductsList,
   loadProduct,
 } from "../../store/features/products/products.slice";
-
+import "animate.css";
 import {
   Box,
   Button,
@@ -33,19 +33,32 @@ import { useRouter } from "next/router";
 import qs from "query-string";
 
 function Shop({ data = [], filter, url }) {
+  const {
+    products,
+    currentPage,
+    totalPage,
+    pageChanged,
+    filterChanged,
+    sortChanged,
+    filtersSearch,
+  } = useSelector(selectProductsList);
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(loadProduct({ productId: 1 }));
   }, []);
 
   const [searchText, setSearchText] = React.useState("");
+  const [sort, setSort] = React.useState([]);
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
-    dispatch(searchFilterChange(e.target.value));
+    dispatch(filtersSearch(e.target.value.toLowerCase()));
   };
 
-  const { products, currentPage, totalPage, pageChanged, filterChanged } =
-    useSelector(selectProductsList);
+  const handleSort = (e) => {
+    setSort(e.target.value);
+    dispatch();
+  };
+
   const paginationItems = new Array(totalPage)
     .fill(null)
     .map((value, index) => (
@@ -66,6 +79,7 @@ function Shop({ data = [], filter, url }) {
     },
   });
   const filterRef = React.useRef();
+  const sortRef = React.useRef();
 
   const categories = [
     {
@@ -106,6 +120,28 @@ function Shop({ data = [], filter, url }) {
                   <SearchIcon />
                 </div>
               </div>
+            </Col>
+            <Col lg={8}>
+              <Form>
+                <div className={styles.sort}>
+                  <select className={styles.select}>
+                    <option>Default Sorting</option>
+
+                    <option
+                      value="toHigh"
+                      onClick={() => {
+                        console.log("hahah");
+                      }}
+                    >
+                      Low to High
+                    </option>
+                  </select>
+                </div>
+              </Form>
+            </Col>
+          </Row>
+          <Row>
+            <Col lg={4}>
               <div className="">
                 <h1>CATEGORIES</h1>
                 <div className="">
@@ -142,17 +178,6 @@ function Shop({ data = [], filter, url }) {
             </Col>
             <Col lg={8}>
               <Row>
-                {/* <select
-                  className={styles.search}
-                  type="text"
-                  placeholder="Search"
-                /> */}
-                <div className={styles.sort}>
-                  <select className={styles.select}>
-                    <option value="">Default Sorting</option>
-                  </select>
-                </div>
-
                 {products.map((product, index) => (
                   <Col lg={4} key={index}>
                     <Product product={product} />
@@ -171,34 +196,3 @@ function Shop({ data = [], filter, url }) {
 }
 
 export default Shop;
-
-// export const getServerSideProps = async (context) => {
-//   const { categories = [] } = context.query;
-
-//   const url = qs.stringifyUrl(
-//     {
-//       url: "http://localhost:3002/products",
-//       query: {
-//         categories,
-//       },
-//     },
-//     {
-//       skipEmptyString: true,
-//       skipNull: true,
-//     }
-//   );
-
-//   const res = await fetch(url);
-
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data,
-//       url,
-//       filter: {
-//         categories,
-//       },
-//     },
-//   };
-// };

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Container from "react-bootstrap/Container";
-import styles from "../../styles/Header.module.css";
+import styles from "../styles/Header.module.css";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import React from "react";

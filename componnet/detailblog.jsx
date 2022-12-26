@@ -1,7 +1,7 @@
 import { Container, Col, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
-import styles from "../../styles/DetailBlog.module.css";
+import styles from "../styles/DetailBlog.module.css";
 import Link from "next/link";
 
 function DetailBlog() {

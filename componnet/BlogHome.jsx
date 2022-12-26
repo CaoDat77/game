@@ -1,5 +1,5 @@
 import { Col, Row } from "react-bootstrap";
-import styles from "../../styles/BlogHome.module.css";
+import styles from "../styles/BlogHome.module.css";
 import Link from "next/link";
 
 function Blog() {

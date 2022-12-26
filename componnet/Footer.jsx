@@ -1,8 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
-import styles from "../../styles/Footer.module.css";
+import styles from "../styles/Footer.module.css";
 import { useForm } from "react-hook-form";
 import Link from "next/link";
-import { ErrorMessage } from "@hookform/error-message";
 
 function Footer() {
   const {
@@ -16,8 +15,6 @@ function Footer() {
       email: "",
     },
   });
-
-
 
   return (
     <Container fluid className={styles.bg}>

@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 // import styles bundle
 import "swiper/css/bundle";
-import styles from "../../styles/Swiper.module.css";
+import styles from "../styles/Swiper.module.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 
 export default function Slider() {

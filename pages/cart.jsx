@@ -4,14 +4,21 @@ import { Container, Row, Col } from "react-bootstrap";
 import { style } from "@mui/system";
 import styles from "../styles/Cart.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sologan from "./componnet/Sologan";
+import Sologan from "../componnet/Sologan";
 import CloseIcon from "@mui/icons-material/Close";
-import ButtonBlack from "./componnet/ButtonBlack";
+import ButtonBlack from "../componnet/ButtonBlack";
 import Link from "next/link";
 function Cart() {
   const dispatch = useDispatch();
-  const { items, totalPrice, incQty, decQty, removeItem, clearItem } =
-    useSelector(selectCart);
+  const {
+    items,
+    totalPrice,
+    incQty,
+    decQty,
+    removeItem,
+    clearItem,
+    toJavaSrcipt,
+  } = useSelector(selectCart);
 
   const handleDelete = (productId) => {
     if (confirm("Xoas sanr pham?")) {

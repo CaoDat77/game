@@ -89,6 +89,14 @@ export const selectCart = (state) => {
     quantity: item.quantity,
   }));
 
+  // const toLocal = localStorage.setItem("cart", JSON.stringify(cart));
+
+  // const getValue = localStorage.getItem("cart");
+  // const toJavaSrcipt = JSON.parse(getValue);
+
+  // const getLocal = localStorage.getItem("cart");
+  // const toJavaSrcipt = JSON.parse(getLocal);
+
   const totalPrice = items.reduce(
     (total, item) => (total += item.product.price * item.quantity),
     0

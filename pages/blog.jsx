@@ -1,7 +1,7 @@
 import styles from "../styles/Blog.module.css";
 import { Container, Row, Col } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sologan from "./componnet/Sologan";
+import Sologan from "../componnet/Sologan";
 import Link from "next/link";
 import ArrowForwardSharpIcon from "@mui/icons-material/ArrowForwardSharp";
 

@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "../styles/Checkbox.module.css";
 import { Container, Row, Col } from "react-bootstrap";
-import Sologan from "./componnet/Sologan";
+import Sologan from "../componnet/Sologan";
 import { style } from "@mui/system";
 import { useForm } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";

@@ -1,5 +1,5 @@
 import Accordion from "react-bootstrap/Accordion";
-import styles from "../../styles/List.module.css";
+import styles from "../styles/List.module.css";
 function List() {
   return (
     <Accordion className={styles.pd}>

@@ -1,9 +1,16 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  createSelector,
+} from "@reduxjs/toolkit";
+
 const initialState = {
   data: [],
   currentPage: 0,
   filter: [],
   loading: true,
+  sort: [],
+  search: "",
 };
 const PAGE_SIZE = 9;
 export const loadProduct = createAsyncThunk(
@@ -25,10 +32,35 @@ const productsSlice = createSlice({
     },
 
     filterChanged: (state, action) => {
+      console.log(state, action);
       return {
         ...state,
         currentPage: 0,
         filter: action.payload,
+      };
+    },
+
+    sortChanged: (state, action) => {
+      return {
+        ...state,
+        currentPage: 0,
+        sort: action.payload,
+      };
+    },
+
+    filtersSearch: (state, action) => {
+      return {
+        ...state,
+        currentPage: 0,
+        search: action.payload,
+      };
+    },
+
+    filtersSort: (state, action) => {
+      return {
+        ...state,
+        currentPage: 0,
+        sort: action.payload,
       };
     },
   },
@@ -45,18 +77,40 @@ const productsSlice = createSlice({
 });
 
 export const productsReducer = productsSlice.reducer;
-export const { pageChanged, displayChanged, filterChanged } =
-  productsSlice.actions;
+export const {
+  pageChanged,
+  displayChanged,
+  filterChanged,
+  sortChanged,
+  filtersSearch,
+  filtersSort,
+} = productsSlice.actions;
 
-export const selectAllProducts = (state) => state.products.data;
 export const selectProductById = (productId) => (state) =>
   state.products.data.find((product) => product.id == productId);
 export const selectProductStatus = (state) =>
   state.products.loading || state.categories.loading;
 export const selectProductsList = (state) => {
   const filteredProducts = state.products.data.filter((product) => {
-    if (state.products.filter.length === 0) return true;
-    else return state.products.filter.includes(product.categories);
+    if (state.products.filter.length === 0) {
+      if (state.products.search.length === 0) {
+        if (state.products.sort.length === 0) {
+          return true;
+        } else if (state.products.sort.includes("toHigh")) {
+          return product.price.sort((a, b) => {
+            return a - b;
+          });
+        } else if (state.products.sort.includes("toLow")) {
+          return product.price.sort((a, b) => {
+            return b - a;
+          });
+        }
+      } else {
+        return product.name.includes(state.products.search);
+      }
+    } else {
+      return state.products.filter.includes(product.categories);
+    }
   });
 
   const total = filteredProducts.length;
@@ -76,5 +130,7 @@ export const selectProductsList = (state) => {
     displayChanged,
     filterChanged,
     loading: state.loading,
+    filtersSort,
+    filtersSearch,
   };
 };

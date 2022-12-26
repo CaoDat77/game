@@ -3,14 +3,13 @@ import { Col, Container, Row, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "../../styles/Detail.module.css";
-import Sologan from "../componnet/Sologan";
+import Sologan from "../../componnet/Sologan";
 import { style } from "@mui/system";
-
 import Link from "next/link";
 import { addItem } from "../../store/features/cart/cart.slice";
 import { toast } from "react-toastify";
 import { selectProductById } from "../../store/features/products/products.slice";
-import ButtonBlack from "../componnet/ButtonBlack";
+import ButtonBlack from "../../componnet/ButtonBlack";
 const ItemDetail = ({ data }) => {
   const dispatch = useDispatch();
   const [quantitys, setQuantity] = React.useState(1);
@@ -50,7 +49,7 @@ const ItemDetail = ({ data }) => {
             </Col>
             <Col lg={5}>
               <div className="">
-                <h1>{data.name}</h1>
+                <h1 className={styles.name}>{data.name}</h1>
                 <h2>${data.price}</h2>
                 <p className={styles.text}>
                   Lorem ipsum dolor sit amet, vidit adipiscing pri ne. Cum at
@@ -109,7 +108,7 @@ export const getStaticPaths = async () => {
   const data = await res.json();
 
   return {
-    paths: data.map((item) => ({ params: { gid: String(item.id) } })),
+    paths: data.map((item) => ({ params: { gid: item.id } })),
     fallback: false,
   };
 };

@@ -79,9 +79,21 @@
   width: 100%;
 }
 
+.name {
+  text-transform: capitalize;
+}
+
+.nonePd {
+  margin-bottom: 0;
+}
+
 @media screen and (max-width: 574px) {
   .info {
     margin-top: 2rem;
+  }
+
+  .molda {
+    display: none;
   }
 
   .mobile button {

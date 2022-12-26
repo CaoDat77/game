@@ -88,3 +88,7 @@
 .flex:first-child:hover {
   cursor: pointer;
 }
+
+.name {
+  text-transform: capitalize;
+}

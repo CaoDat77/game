@@ -1,9 +1,9 @@
 import { Row, Col } from "react-bootstrap";
-import styles from "../../styles/Product.module.css";
+import styles from "../styles/Product.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import React from "react";
-import { addItem } from "../../store/features/cart/cart.slice";
+import { addItem } from "../store/features/cart/cart.slice";
 import ButtonBlack from "../componnet/ButtonBlack";
 function Product({ product }) {
   const dispatch = useDispatch();
@@ -14,7 +14,15 @@ function Product({ product }) {
   return (
     <div className={styles.mB15}>
       <div className={styles.cart}>
-        <img className={styles.image} src={product.image} alt="" />
+        <Link
+          className={styles.view}
+          href={{
+            pathname: "/products/[gid]",
+            query: { gid: product.id },
+          }}
+        >
+          <img className={styles.image} src={product.image} alt="" />
+        </Link>
 
         <div className={styles.molda}>
           <div className={styles.hoveritem}>
@@ -30,7 +38,8 @@ function Product({ product }) {
                   query: { gid: product.id },
                 }}
               >
-                VIEW DETAIL
+                <p className={styles.nonePd}>VIEW DETAIL</p>
+
                 <p className={styles.line}></p>
               </Link>
             </div>
@@ -41,7 +50,7 @@ function Product({ product }) {
       </div>
       <div className={styles.mobile}>
         <div className={styles.info}>
-          <p>{product.name}</p>
+          <p className={styles.name}>{product.name}</p>
           <p>${product.price}</p>
         </div>
         <span onClick={handleAddToCart}>
