@@ -6,7 +6,7 @@ function Blog() {
   return (
     <Row>
       <Col lg={4} className={styles.box}>
-        <Link href="/componnet/detailblog" className={styles.textA}>
+        <Link href="/detailblog" className={styles.textA}>
           <img className={styles.re} src="/home/home-7.jpg" alt="" />
           <div className={styles.ab}>
             KITCHEN
@@ -18,7 +18,7 @@ function Blog() {
         </Link>
       </Col>
       <Col lg={4} className={styles.box}>
-        <Link href="/componnet/detailblog" className={styles.textA}>
+        <Link href="/detailblog" className={styles.textA}>
           <img className={styles.re} src="/home/home-8.jpg" alt="" />
           <div className={styles.ab}>
             BATHS
@@ -30,7 +30,7 @@ function Blog() {
         </Link>
       </Col>
       <Col lg={4} className={styles.box}>
-        <Link href="/componnet/detailblog" className={styles.textA}>
+        <Link href="/detailblog" className={styles.textA}>
           <img className={styles.re} src="/home/home-9.jpg" alt="" />
           <div className={styles.ab}>
             LIVING

@@ -93,18 +93,8 @@ export const selectProductStatus = (state) =>
 export const selectProductsList = (state) => {
   const filteredProducts = state.products.data.filter((product) => {
     if (state.products.filter.length === 0) {
-      if (state.products.search.length === 0) {
-        if (state.products.sort.length === 0) {
-          return true;
-        } else if (state.products.sort.includes("toHigh")) {
-          return product.price.sort((a, b) => {
-            return a - b;
-          });
-        } else if (state.products.sort.includes("toLow")) {
-          return product.price.sort((a, b) => {
-            return b - a;
-          });
-        }
+      if (state.products.search === "") {
+        return true;
       } else {
         return product.name.includes(state.products.search);
       }
@@ -112,6 +102,21 @@ export const selectProductsList = (state) => {
       return state.products.filter.includes(product.categories);
     }
   });
+
+  // hàm tìm kiếm
+
+  // hàm sắp xếp
+  if (state.products.sort === "") {
+    return true;
+  } else if (state.products.sort === "toHigh") {
+    filteredProducts.sort((a, b) => {
+      return a.price - b.price;
+    });
+  } else if (state.products.sort === "toLow") {
+    filteredProducts.sort((a, b) => {
+      return b.price - a.price;
+    });
+  }
 
   const total = filteredProducts.length;
   const totalPage = Math.ceil(total / PAGE_SIZE);

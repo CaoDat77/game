@@ -39,7 +39,7 @@ function Shop({ data = [], filter, url }) {
     totalPage,
     pageChanged,
     filterChanged,
-    sortChanged,
+    filtersSort,
     filtersSearch,
   } = useSelector(selectProductsList);
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ function Shop({ data = [], filter, url }) {
   }, []);
 
   const [searchText, setSearchText] = React.useState("");
-  const [sort, setSort] = React.useState([]);
+  const [sort, setSort] = React.useState("");
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
     dispatch(filtersSearch(e.target.value.toLowerCase()));
@@ -56,7 +56,7 @@ function Shop({ data = [], filter, url }) {
 
   const handleSort = (e) => {
     setSort(e.target.value);
-    dispatch();
+    dispatch(filtersSort(e.target.value));
   };
 
   const paginationItems = new Array(totalPage)
@@ -124,17 +124,12 @@ function Shop({ data = [], filter, url }) {
             <Col lg={8}>
               <Form>
                 <div className={styles.sort}>
-                  <select className={styles.select}>
+                  <select className={styles.select} onChange={handleSort}>
                     <option>Default Sorting</option>
 
-                    <option
-                      value="toHigh"
-                      onClick={() => {
-                        console.log("hahah");
-                      }}
-                    >
-                      Low to High
-                    </option>
+                    <option value="toHigh">Low to High</option>
+
+                    <option value="toLow">High to Low</option>
                   </select>
                 </div>
               </Form>
@@ -158,7 +153,7 @@ function Shop({ data = [], filter, url }) {
                     ref={filterRef}
                   >
                     <Box mb="30px">
-                      <FormGroup>
+                      <FormGroup className={styles.checkbox}>
                         {categories.map((categories) => {
                           return (
                             <Form.Check

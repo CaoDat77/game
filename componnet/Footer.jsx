@@ -24,13 +24,13 @@ function Footer() {
             <h6 className={styles.h6}>INFORMATION</h6>
             <ul className={styles.ul}>
               <li>
-                <Link href="/">ABOUT US</Link>
+                <Link href="/about">ABOUT US</Link>
               </li>
               <li>
-                <Link href="/">OUR TEAM</Link>
+                <Link href="/about">OUR TEAM</Link>
               </li>
               <li>
-                <Link href="/">CONTACT US</Link>
+                <Link href="/contact">CONTACT US</Link>
               </li>
               <li>
                 <Link href="/">PRICING PLANS</Link>

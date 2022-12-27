@@ -61,7 +61,12 @@ function Cart() {
           )}
 
           {items.length === 0 ? (
-            <div>hahah</div>
+            <div className={styles.empty}>
+              <h1>YOUR CART IS CURRENTLY EMPTY.</h1>
+              <Link href="/products">
+                <ButtonBlack text="RETURN TO SHOP" />
+              </Link>
+            </div>
           ) : (
             items.map((item) => (
               <Row className={styles.center} key={item.id}>
