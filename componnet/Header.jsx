@@ -100,11 +100,10 @@ function Header() {
             <li>
               <Link href="/products">SHOP</Link>
             </li>
-            <li>
+            <li className={styles.iconCart} count={items.length}>
               <Link href="/cart">
                 <ShoppingCartTwoToneIcon className={styles.cart} />
               </Link>
-              <sub className={styles.length}>{items.length}</sub>
             </li>
           </ul>
         </Container>
