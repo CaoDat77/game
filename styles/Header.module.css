@@ -150,6 +150,11 @@
 }
 
 @media screen and (max-width: 574px) {
+  .iconCart::before {
+    top: -1rem;
+    right: -1rem;
+  }
+
   .navBg {
     padding: 2rem 0;
   }
