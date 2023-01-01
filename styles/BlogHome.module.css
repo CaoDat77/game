@@ -1,6 +1,7 @@
 .box {
   height: 60rem;
   overflow: hidden;
+  margin-top: 2rem;
 }
 
 .ab {
@@ -37,5 +38,3 @@
 .box:hover .ab {
   bottom: 19rem;
 }
-
-

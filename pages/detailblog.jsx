@@ -3,19 +3,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Breadcrumb from "react-bootstrap/Breadcrumb";
 import styles from "../styles/DetailBlog.module.css";
 import Link from "next/link";
-
+import Sologan from "../componnet/Sologan";
 function DetailBlog() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-        <Container className={styles.Breadcrumbs}>
-          <Breadcrumb>
-            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-            <Breadcrumb.Item href="/blog">Blog</Breadcrumb.Item>
-            <Breadcrumb.Item active>Kitchen</Breadcrumb.Item>
-          </Breadcrumb>
-        </Container>
+        <Sologan text="BLOG" />
       </Container>
+
+      {/* <Container className={styles.Breadcrumbs}>
+        <Breadcrumb>
+          <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+          <Breadcrumb.Item href="/blog">Blog</Breadcrumb.Item>
+          <Breadcrumb.Item active>Kitchen</Breadcrumb.Item>
+        </Breadcrumb>
+      </Container> */}
 
       <section className={styles.mgT80}>
         <Container>
