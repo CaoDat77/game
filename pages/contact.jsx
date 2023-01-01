@@ -55,18 +55,20 @@ function Contact() {
         <section className={styles.mgT80}>
           <Row>
             <Col lg={5} xs={12}>
-              <h2 className={styles.h2}>WE ARE HERE</h2>
-              <p className={styles.contactText}>
-                Ac placerat vestibulum lectus mau ris ultrices. Et egestas quis
-                ipsum su spendisse ultrices gravida um fusce. Sit amet est
-                placerat in. Mae cenas ultricies mi eget mauris. Fames ac turpis
-                egestas maecas pharetra.
-              </p>
-              <div className={styles.social}>
-                <p className={styles.socials}>SOCIALS</p>
-                <Link href="/">FB</Link>
-                <Link href="/">TW</Link>
-                <Link href="/">PIN</Link>
+              <div className={styles.pdB20}>
+                <h2 className={styles.h2}>WE ARE HERE</h2>
+                <p className={styles.contactText}>
+                  Ac placerat vestibulum lectus mau ris ultrices. Et egestas
+                  quis ipsum su spendisse ultrices gravida um fusce. Sit amet
+                  est placerat in. Mae cenas ultricies mi eget mauris. Fames ac
+                  turpis egestas maecas pharetra.
+                </p>
+                <div className={styles.social}>
+                  <p className={styles.socials}>SOCIALS</p>
+                  <Link href="/">FB</Link>
+                  <Link href="/">TW</Link>
+                  <Link href="/">PIN</Link>
+                </div>
               </div>
             </Col>
             <Col lg={7} xs={12}>

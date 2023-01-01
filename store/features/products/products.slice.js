@@ -11,6 +11,8 @@ const initialState = {
   loading: true,
   sort: [],
   search: "",
+  dataSearch: [],
+  default: [],
 };
 const PAGE_SIZE = 9;
 export const loadProduct = createAsyncThunk(
@@ -48,11 +50,23 @@ const productsSlice = createSlice({
       };
     },
 
-    filtersSearch: (state, action) => {
+    // filtersSearch: (state, action) => {
+    //   return {
+    //     ...state,
+    //     currentPage: 0,
+    //     search: action.payload,
+    //   };
+    // },
+
+    searchByName: (state, action) => {
+      const filteredProducts = state.data.filter((product) =>
+        product.name.toLowerCase().includes(action.payload.toLowerCase())
+      );
+
       return {
         ...state,
         currentPage: 0,
-        search: action.payload,
+        data: action.payload.length > 0 ? filteredProducts : [...state.default],
       };
     },
 
@@ -71,6 +85,8 @@ const productsSlice = createSlice({
         ...state,
         data: action.payload,
         loading: false,
+        default: action.payload,
+        dataSearch: action.payload,
       };
     });
   },
@@ -84,6 +100,7 @@ export const {
   sortChanged,
   filtersSearch,
   filtersSort,
+  searchByName,
 } = productsSlice.actions;
 
 export const selectProductById = (productId) => (state) =>
@@ -137,5 +154,6 @@ export const selectProductsList = (state) => {
     loading: state.loading,
     filtersSort,
     filtersSearch,
+    searchByName,
   };
 };

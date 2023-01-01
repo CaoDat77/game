@@ -1,7 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { useSelector } from "react-redux";
-import { toast } from "react-toastify";
-
 import { selectAllProducts } from "../products/products.slice";
 
 const initialState = [];
@@ -11,7 +9,6 @@ const cartSlice = createSlice({
   reducers: {
     addItem: (state, { payload: { productId, quantity } }) => {
       const itemIndex = state.findIndex((item) => item.productId == productId);
-      console.log(state);
       if (itemIndex !== -1) {
         const newItem = {
           ...state[itemIndex],
@@ -89,7 +86,7 @@ export const selectCart = (state) => {
     quantity: item.quantity,
   }));
 
-  // const toLocal = localStorage.setItem("cart", JSON.stringify(cart));
+  // const toLocal = localStorage.setItem("cart", JSON.stringify(items));
 
   // const getValue = localStorage.getItem("cart");
   // const toJavaSrcipt = JSON.parse(getValue);

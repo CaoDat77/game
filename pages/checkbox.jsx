@@ -8,9 +8,10 @@ import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import { selectCart } from "../store/features/cart/cart.slice";
 import { useDispatch, useSelector } from "react-redux";
 import Accordion from "react-bootstrap/Accordion";
+import ButtonBlack from "../componnet/ButtonBlack";
 
 function CheckBox() {
-  const { items } = useSelector(selectCart);
+  const { items, totalPrice } = useSelector(selectCart);
 
   const {
     register,
@@ -151,7 +152,7 @@ function CheckBox() {
                   </div>
                   <p className={styles.error}> {errors.email?.message}</p>
                 </div>
-                <button>hahaha</button>
+                <ButtonBlack text="PLACE ORDER" />
               </form>
             </Col>
             <Col lg={6}>
@@ -172,24 +173,36 @@ function CheckBox() {
               <h2 className={styles.mT20}>YOUR ORDER</h2>
               <div>
                 <Row className={styles.line}>
-                  <Col lg={8}>PRODUCT</Col>
-                  <Col lg={4}>SUBTOTAL</Col>
+                  <Col lg={8} xs={8}>
+                    PRODUCT
+                  </Col>
+                  <Col lg={4} xs={4}>
+                    SUBTOTAL
+                  </Col>
                 </Row>
 
                 {items.map((item) => (
                   <Row className={styles.line} key={item.id}>
-                    <Col lg={8}>
+                    <Col lg={8} xs={8}>
                       <p className={styles.text}>
                         {item.product.name} × {item.quantity}
                       </p>
                     </Col>
-                    <Col lg={4}>
+                    <Col lg={4} xs={4}>
                       <p className={styles.text}>
                         ${item.product.price * item.quantity}
                       </p>
                     </Col>
                   </Row>
                 ))}
+                <Row>
+                  <Col lg={8} xs={8}>
+                    <p className={styles.total}>TOTAL</p>
+                  </Col>
+                  <Col lg={4} xs={4}>
+                    <p className={styles.price}>${totalPrice}</p>
+                  </Col>
+                </Row>
 
                 <Row>
                   <Accordion defaultActiveKey="0">

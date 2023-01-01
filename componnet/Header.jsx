@@ -4,8 +4,9 @@ import styles from "../styles/Header.module.css";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 import React from "react";
-
 import CloseIcon from "@mui/icons-material/Close";
+import { selectCart } from "../store/features/cart/cart.slice";
+import { useDispatch, useSelector } from "react-redux";
 function Header() {
   const open = React.useRef();
   const menu = React.useRef();
@@ -13,6 +14,8 @@ function Header() {
   const nav = React.useRef();
   const ul = React.useRef();
   const list = React.useRef();
+
+  const { items } = useSelector(selectCart);
   React.useEffect(() => {
     const handleClose = () => {
       menu.current.style.transform = "translateX(-100%)";
@@ -101,6 +104,7 @@ function Header() {
               <Link href="/cart">
                 <ShoppingCartTwoToneIcon className={styles.cart} />
               </Link>
+              <sub className={styles.length}>{items.length}</sub>
             </li>
           </ul>
         </Container>

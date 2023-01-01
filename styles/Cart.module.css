@@ -43,6 +43,8 @@
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.3rem;
   font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 .th {
@@ -104,4 +106,18 @@
 
 .empty {
   text-align: center;
+}
+
+.cart {
+  margin-top: 8rem;
+}
+
+@media screen and (max-width: 574px) {
+  .none {
+    display: none;
+  }
+
+  .cart {
+    margin-top: 4rem;
+  }
 }

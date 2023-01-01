@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { addItem } from "../store/features/cart/cart.slice";
 import ButtonBlack from "../componnet/ButtonBlack";
+import { toast } from "react-toastify";
 function Product({ product }) {
   const dispatch = useDispatch();
   const handleAddToCart = () => {

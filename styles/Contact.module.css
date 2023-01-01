@@ -159,6 +159,10 @@
   font-size: 2rem;
 }
 
+.pdB20 {
+  margin-bottom: 2rem;
+}
+
 @media screen and (max-width: 574px) {
   .name {
     display: block;

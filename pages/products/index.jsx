@@ -41,6 +41,7 @@ function Shop({ data = [], filter, url }) {
     filterChanged,
     filtersSort,
     filtersSearch,
+    searchByName,
   } = useSelector(selectProductsList);
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -51,8 +52,13 @@ function Shop({ data = [], filter, url }) {
   const [sort, setSort] = React.useState("");
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
-    dispatch(filtersSearch(e.target.value.toLowerCase()));
+    dispatch(searchByName(e.target.value.toLowerCase()));
   };
+
+  //Search
+  // const changeSearchTerm = (e) => {
+  //   dispatch(searchByName(e.target.value));
+  // };
 
   const handleSort = (e) => {
     setSort(e.target.value);
@@ -94,7 +100,7 @@ function Shop({ data = [], filter, url }) {
     },
     {
       id: 4,
-      label: "other",
+      label: "Other",
       value: "other",
     },
   ];
@@ -107,74 +113,70 @@ function Shop({ data = [], filter, url }) {
       <section className={styles.mT80}>
         <Container>
           <Row>
-            <Col lg={4}>
-              <div className={styles.input}>
-                <input
-                  value={searchText}
-                  className={styles.search}
-                  type="text"
-                  placeholder="Search"
-                  onChange={handleSearchTextChange}
-                />
-                <div className={styles.icon}>
-                  <SearchIcon />
+            <Col lg={4} className={styles.colLeft}>
+              <div className={styles.bgCol}>
+                <h1>Search</h1>
+                <div className={styles.input}>
+                  <input
+                    value={searchText}
+                    className={styles.search}
+                    type="text"
+                    placeholder="Search"
+                    onChange={handleSearchTextChange}
+                  />
+                  <div className={styles.icon}>
+                    <SearchIcon />
+                  </div>
                 </div>
-              </div>
-            </Col>
-            <Col lg={8}>
-              <Form>
                 <div className={styles.sort}>
+                  <h1>Sort</h1>
                   <select className={styles.select} onChange={handleSort}>
                     <option>Default Sorting</option>
-
                     <option value="toHigh">Low to High</option>
-
                     <option value="toLow">High to Low</option>
                   </select>
                 </div>
-              </Form>
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={4}>
-              <div className="">
-                <h1>CATEGORIES</h1>
-                <div className="">
-                  <Form
-                    onChange={() => {
-                      const filter = [];
-                      console.log(filter);
-                      filterRef.current.elements.filter.forEach((checkbox) => {
-                        if (checkbox.checked) filter.push(checkbox.value);
-                      });
+                <div className={styles.mT20}>
+                  <h1>Categories</h1>
+                  <div className="">
+                    <Form
+                      onChange={() => {
+                        const filter = [];
+                        console.log(filter);
+                        filterRef.current.elements.filter.forEach(
+                          (checkbox) => {
+                            if (checkbox.checked) filter.push(checkbox.value);
+                          }
+                        );
 
-                      dispatch(filterChanged(filter));
-                    }}
-                    ref={filterRef}
-                  >
-                    <Box mb="30px">
-                      <FormGroup className={styles.checkbox}>
-                        {categories.map((categories) => {
-                          return (
-                            <Form.Check
-                              name="filter"
-                              type="checkbox"
-                              key={categories.id}
-                              label={categories.label}
-                              value={categories.value}
-                            />
-                          );
-                        })}
-                      </FormGroup>
-                    </Box>
-                  </Form>
+                        dispatch(filterChanged(filter));
+                      }}
+                      ref={filterRef}
+                    >
+                      <Box mb="2rem">
+                        <FormGroup className={styles.checkbox}>
+                          {categories.map((categories) => {
+                            return (
+                              <Form.Check
+                                name="filter"
+                                type="checkbox"
+                                key={categories.id}
+                                label={categories.label}
+                                value={categories.value}
+                              />
+                            );
+                          })}
+                        </FormGroup>
+                      </Box>
+                    </Form>
+                  </div>
                 </div>
               </div>
             </Col>
             <Col lg={8}>
               <Row>
                 {products.map((product, index) => (
-                  <Col lg={4} key={index}>
+                  <Col lg={4} key={index} className={styles.product}>
                     <Product product={product} />
                   </Col>
                 ))}

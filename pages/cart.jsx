@@ -39,22 +39,22 @@ function Cart() {
             <div></div>
           ) : (
             <Row className={styles.line}>
-              <Col lg={2}>
+              <Col lg={2} xs={1}>
                 <p></p>
               </Col>
-              <Col lg={5}>
+              <Col lg={5} xs={7}>
                 <p className={styles.th}>PRODUCT</p>
               </Col>
 
-              <Col lg={1}>
+              <Col lg={1} className={styles.none}>
                 <p className={styles.th}>PRICE</p>
               </Col>
 
-              <Col lg={2}>
+              <Col lg={2} xs={3}>
                 <p className={styles.th}>QUANTITY</p>
               </Col>
 
-              <Col lg={2}>
+              <Col lg={2} className={styles.none}>
                 <p className={styles.th}>SUBTOTAL</p>
               </Col>
             </Row>
@@ -70,9 +70,9 @@ function Cart() {
           ) : (
             items.map((item) => (
               <Row className={styles.center} key={item.id}>
-                <Col lg={2}>
+                <Col lg={2} xs={1}>
                   <Row className="">
-                    <Col lg={4} className={styles.delete}>
+                    <Col lg={4} xs={12} className={styles.delete}>
                       <div
                         onClick={() => {
                           handleDelete(item.product.id);
@@ -81,7 +81,7 @@ function Cart() {
                         <CloseIcon />
                       </div>
                     </Col>
-                    <Col lg={8}>
+                    <Col lg={8} className={styles.none}>
                       <img
                         className={styles.image}
                         src={item.product.image}
@@ -91,21 +91,21 @@ function Cart() {
                   </Row>
                 </Col>
 
-                <Col lg={5}>
+                <Col lg={5} xs={7}>
                   <p className={styles.name}>{item.product.name}</p>
                 </Col>
 
-                <Col lg={1}>
+                <Col lg={1} className={styles.none}>
                   <p className={styles.price}>${item.product.price}</p>
                 </Col>
 
-                <Col lg={2} className={styles.quantity}>
+                <Col lg={2} xs={4} className={styles.quantity}>
                   <p onClick={() => dispatch(decQty(item.product.id))}>-</p>
                   <p>{item.quantity}</p>
                   <p onClick={() => dispatch(incQty(item.product.id))}>+</p>
                 </Col>
 
-                <Col>
+                <Col className={styles.none}>
                   <p className={styles.price}>
                     ${item.product.price * item.quantity}
                   </p>
@@ -118,7 +118,7 @@ function Cart() {
             <div></div>
           ) : (
             <div className="">
-              <h1 className={styles.mT80}>CART TOTALS</h1>
+              <h1 className={styles.cart}>CART TOTALS</h1>
               <Row className={styles.center}>
                 <Col lg={4} className={styles.mT20}>
                   <p className={styles.total}>TOTAL</p>
