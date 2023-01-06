@@ -30,6 +30,10 @@
   letter-spacing: 0.1rem;
 }
 
+.text:last-child {
+  cursor: pointer;
+}
+
 .cate {
   font-family: "EB Garamond", serif;
   font-size: 2.2rem;
@@ -49,6 +53,7 @@
 
 .row {
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .social {
@@ -72,6 +77,7 @@
 
 .p {
   display: flex;
+  margin-right: 2rem;
 }
 
 .p p {
@@ -79,6 +85,20 @@
   font-size: 2.2rem;
   padding: 1rem;
   margin: 0 1rem;
+  height: 4.9rem;
+}
+
+.p p:first-child:hover {
+  cursor: pointer;
+  background-color: #eee;
+  transition: 0.5s;
+}
+
+.p p:last-child:hover {
+  cursor: pointer;
+  background-color: #eee;
+
+  transition: 0.5s;
 }
 
 .flex button {
@@ -91,4 +111,9 @@
 
 .name {
   text-transform: capitalize;
+  margin-top: 2rem;
+}
+
+.price {
+  margin-top: 1.5rem;
 }

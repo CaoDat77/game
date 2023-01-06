@@ -50,7 +50,7 @@ const ItemDetail = ({ data }) => {
             <Col lg={5}>
               <div className="">
                 <h1 className={styles.name}>{data.name}</h1>
-                <h2>${data.price}</h2>
+                <h2 className={styles.price}>${data.price}</h2>
                 <p className={styles.text}>
                   Lorem ipsum dolor sit amet, vidit adipiscing pri ne. Cum at
                   ornatus imperdiet persequeris. Eu movet facilis nam. Nihil

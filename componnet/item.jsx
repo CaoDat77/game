@@ -2,13 +2,20 @@ import { Row, Col } from "react-bootstrap";
 import styles from "../styles/Product.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import React from "react";
+import { selectCart } from "../store/features/cart/cart.slice";
 import { addItem } from "../store/features/cart/cart.slice";
 import ButtonBlack from "../componnet/ButtonBlack";
-import { toast } from "react-toastify";
+import React from "react";
+
+
+
+import "react-toastify/dist/ReactToastify.css";
+
 function Product({ product }) {
   const dispatch = useDispatch();
-  const handleAddToCart = () => {
+  
+
+  const handleAddToCart = () => {  
     dispatch(addItem({ productId: product.id, quantity: 1 }));
   };
 
@@ -48,6 +55,7 @@ function Product({ product }) {
             <div className=""></div>
           </div>
         </div>
+        {/* <ToastContainer /> */}
       </div>
       <div className={styles.mobile}>
         <div className={styles.info}>

@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
-import { selectAllProducts } from "../products/products.slice";
+import { toast } from "react-toastify";
+const notify = () => toast("Đã thêm vào giỏ hàng");
+const notify2 = () => toast("Quanity++");
 
 const initialState = [];
 const cartSlice = createSlice({
@@ -10,6 +11,7 @@ const cartSlice = createSlice({
     addItem: (state, { payload: { productId, quantity } }) => {
       const itemIndex = state.findIndex((item) => item.productId == productId);
       if (itemIndex !== -1) {
+        notify2();
         const newItem = {
           ...state[itemIndex],
           quantity: state[itemIndex].quantity + quantity,
@@ -20,6 +22,7 @@ const cartSlice = createSlice({
 
         return newState;
       } else {
+        notify();
         return [...state, { productId, quantity }];
       }
     },

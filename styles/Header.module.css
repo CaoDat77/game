@@ -52,6 +52,15 @@
   color: white;
 }
 
+.ul li a:hover {
+  color: #cdcdcd;
+  text-decoration: underline;
+}
+
+.ul li a:focus {
+  text-decoration: underline 2px;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -137,11 +146,10 @@
 .iconCart::before {
   content: attr(count);
   position: absolute;
-  top: 1rem;
+  top: 1.2rem;
   right: 0.5rem;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #333;
   color: white;
   border-radius: 50%;
   display: flex;
@@ -152,7 +160,8 @@
 @media screen and (max-width: 574px) {
   .iconCart::before {
     top: -1rem;
-    right: -1rem;
+    right: -1.5rem;
+    font-size: 2rem;
   }
 
   .navBg {

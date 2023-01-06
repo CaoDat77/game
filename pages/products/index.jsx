@@ -12,25 +12,21 @@ import {
   loadProduct,
 } from "../../store/features/products/products.slice";
 import "animate.css";
-import {
-  Box,
-  Button,
-  Checkbox,
-  FormControl,
-  FormControlLabel,
-  FormGroup,
-  Grid,
-  MenuItem,
-  Select,
-  Slider,
-  styled,
-  ToggleButton,
-  ToggleButtonGroup,
-} from "@mui/material";
-
+import { Box, FormGroup } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import qs from "query-string";
+import { ToastContainer, toast } from "react-toastify";
+import {
+  getFirestore,
+  collection,
+  doc,
+  deleteDoc,
+  setDoc,
+  onSnapshot,
+  updateDoc,
+  query,
+} from "firebase/firestore";
+import { app } from "../../lib/firebase";
 
 function Shop({ data = [], filter, url }) {
   const {
@@ -49,16 +45,10 @@ function Shop({ data = [], filter, url }) {
   }, []);
 
   const [searchText, setSearchText] = React.useState("");
-  const [sort, setSort] = React.useState("");
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
     dispatch(searchByName(e.target.value.toLowerCase()));
   };
-
-  //Search
-  // const changeSearchTerm = (e) => {
-  //   dispatch(searchByName(e.target.value));
-  // };
 
   const handleSort = (e) => {
     setSort(e.target.value);
@@ -188,6 +178,7 @@ function Shop({ data = [], filter, url }) {
           </Row>
         </Container>
       </section>
+      <ToastContainer />
     </Container>
   );
 }

@@ -26,6 +26,7 @@
     "eslint-config-next": "13.0.6",
     "firebase": "^9.15.0",
     "next": "^13.0.6",
+    "persist": "^0.2.7",
     "query-string": "^8.1.0",
     "react": "18.2.0",
     "react-bootstrap": "^2.6.0",
