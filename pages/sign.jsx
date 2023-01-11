@@ -14,10 +14,12 @@ import { app } from "../lib/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonBlack from "../componnet/ButtonBlack";
 import { toast, ToastContainer } from "react-toastify";
+import { useRouter } from "next/router";
 
 const Sign = () => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
+  const router = useRouter();
 
   const {
     reset: reset2,
@@ -64,7 +66,7 @@ const Sign = () => {
     deps: ["password"],
     validate: {
       match: (v) =>
-        v === getValues("password") || "Xác nhận mật khẩu không trùng khớp",
+        v === getValues("password") || "password does not match",
     },
   });
 
@@ -87,16 +89,7 @@ const Sign = () => {
                   router.push("/");
                 })
                 .catch(function (error) {
-                  toast.error(`Account already exists`, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
+                  toast.error("Account already exists");
                 });
             })}
           >

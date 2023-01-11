@@ -12,6 +12,7 @@ import {
   GoogleAuthProvider,
   signOut,
 } from "firebase/auth";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = (props) => {
   const auth = getAuth(app);
@@ -39,6 +40,7 @@ const Layout = (props) => {
   return (
     <div className="">
       <Header />
+      <ToastContainer />
       {props.children}
       <Footer />
     </div>

@@ -12,10 +12,13 @@ import {
 import { app } from "../lib/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonBlack from "../componnet/ButtonBlack";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
+  const logSuccess = () => toast.success("Login successfully");
+
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
@@ -56,21 +59,13 @@ const Login = () => {
             key={3}
             action=""
             onSubmit={handleSubmit3((data) => {
+              logSuccess();
               signInWithEmailAndPassword(auth, data.email, data.password);
-              toast.success(`Login successfully`, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-              });
+
               reset3();
-              if (auth) {
-                router.push("/");
-              }
+              // if (auth) {
+              //   router.push("/");
+              // }
             })}
           >
             <div className={styles.field}>
@@ -137,7 +132,6 @@ const Login = () => {
             Google
           </Button>
         </div>
-        <ToastContainer />
       </div>
     </>
   );
