@@ -75,7 +75,7 @@ const Sign = () => {
           <form
             key={2}
             action=""
-            onSubmit={handleSubmit2((data) => {
+            onSubmit={handleSubmit2((data) => { 
               createUserWithEmailAndPassword(auth, data.email, data.password)
                 .then(() => {
                   updateProfile(auth.currentUser, {

@@ -16,7 +16,7 @@ import "animate.css";
 import { Box, FormGroup } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-
+import { toast, ToastContainer } from "react-toastify";
 import { selectCart } from "../../store/features/cart/cart.slice";
 
 function Shop({ data = [], filter, url }) {
@@ -124,6 +124,7 @@ function Shop({ data = [], filter, url }) {
           SHOP
         </h1>
       </Container>
+      <ToastContainer />
       <section className={styles.mT80}>
         <Container>
           <Row>
