@@ -18,35 +18,88 @@ import {
 } from "firebase/firestore";
 import { app } from "../lib/firebase";
 import { ToastContainer, toast } from "react-toastify";
+import { getAuth } from "firebase/auth";
 
 function Product({ product }) {
   const dispatch = useDispatch();
-  const { items } = useSelector(selectCart);
+  const auth = getAuth(app);
+
   const [cart, setCart] = React.useState();
   const [count, setCount] = React.useState(1);
   console.log();
 
   const cartRef = collection(getFirestore(app), "store");
 
-  const handleAddToCart = () => {
-    dispatch(addItem({ productId: product.id, quantity: 1 }));
+  React.useEffect(() => {
+    const q = query(cartRef);
+    const wishlist = onSnapshot(q, (querySnapshot) => {
+      let data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
+      });
+      setCart(data.filter((item) => item.uid == (user && user.uid)));
+    });
+    return () => wishlist();
+  }, [cartRef]);
+
+  const handleAddtoCart = async (product) => {
+    // check product exist
+    const check = cart.filter(
+      (item) => item.uid == user.uid && item.name == product.name
+    );
+
+    if (auth.currentUser) {
+      if (check.length > 0) {
+        const reference = doc(cartRef, check[0].id);
+        await updateDoc(reference, {
+          quantity: check[0].quantity + count,
+        });
+        toast.success(`${product.name} added to cart successfully`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        const reference = doc(cartRef);
+        await setDoc(reference, {
+          uid: user.uid,
+          productId: product.id,
+          quantity: count,
+          ...product,
+        });
+
+        toast.success(`${product.name} added to cart successfully`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    } else {
+      toast.warning(`You need to login to perform this function`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
-
-  // React.useEffect(() => {
-  //   console.log(items);
-  // }, [items.length]);
-
-  // React.useEffect(() => {
-  //   const q = query(cartRef);
-  //   const wishlist = onSnapshot(q, (querySnapshot) => {
-  //     let data = [];
-  //     querySnapshot.forEach((doc) => {
-  //       data.push({ ...doc.data(), id: doc.id });
-  //     });
-  //     setCart(data.filter((item) => item));
-  //   });
-  //   return () => wishlist();
-  // }, []);
+  // const handleAddToCart = () => {
+  //   dispatch(addItem({ productId: product.id, quantity: 1 }));
+  // };
 
   // const handleAddtoWishList = async () => {
   //   // console.log(cart);
@@ -104,7 +157,10 @@ function Product({ product }) {
         <div className={styles.molda}>
           <div className={styles.hoveritem}>
             <div className="">
-              <span className={styles.add} onClick={handleAddToCart}>
+              <span
+                className={styles.add}
+                onClick={() => handleAddtoCart(product)}
+              >
                 ADD TO CART
                 <p className={styles.line}></p>
               </span>
@@ -124,14 +180,13 @@ function Product({ product }) {
             <div className=""></div>
           </div>
         </div>
-        {/* <ToastContainer /> */}
       </div>
       <div className={styles.mobile}>
         <div className={styles.info}>
           <p className={styles.name}>{product.name}</p>
           <p>${product.price}</p>
         </div>
-        <span onClick={handleAddToCart}>
+        <span onClick={() => handleAddtoCart(product)}>
           <ButtonBlack text="ADD TO CART" />
         </span>
       </div>

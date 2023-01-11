@@ -10,7 +10,22 @@ import { addItem } from "../../store/features/cart/cart.slice";
 import { ToastContainer } from "react-toastify";
 import { selectProductById } from "../../store/features/products/products.slice";
 import ButtonBlack from "../../componnet/ButtonBlack";
+import {
+  collection,
+  doc,
+  getFirestore,
+  onSnapshot,
+  query,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
+import { app } from "../../lib/firebase";
+import { getAuth } from "firebase/auth";
+import { toast } from "react-toastify";
+
 const ItemDetail = ({ data }) => {
+  const auth = getAuth(app);
+  const [cart, setCart] = React.useState([]);
   const dispatch = useDispatch();
   const [quantitys, setQuantity] = React.useState(1);
   const product = useSelector(selectProductById(data.id));
@@ -28,11 +43,82 @@ const ItemDetail = ({ data }) => {
     }
   };
 
-  const handleAddToCartClick = (productId) => {
-    dispatch(addItem({ productId: productId, quantity: quantitys }));
+  // const handleAddToCartClick = (productId) => {
+  //   dispatch(addItem({ productId: productId, quantity: quantitys }));
+  // };
+  // console.log(quantitys);
+  // console.log(product);
+
+  // add to cart
+  const cartRef = collection(getFirestore(app), "store");
+
+  React.useEffect(() => {
+    const q = query(cartRef);
+    const wishlist = onSnapshot(q, (querySnapshot) => {
+      let data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
+      });
+      setCart(data.filter((item) => item.uid == (user && user.uid)));
+    });
+    return () => wishlist();
+  }, [cartRef]);
+
+  const handleAddtoCart = async (product) => {
+    // check product exist
+    const check = cart.filter(
+      (item) => item.uid == user.uid && item.name == product.name
+    );
+
+    if (auth.currentUser) {
+      if (check.length > 0) {
+        const reference = doc(cartRef, check[0].id);
+        await updateDoc(reference, {
+          quantity: check[0].quantity + count,
+        });
+        toast.success(`${product.name} added to cart successfully`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        const reference = doc(cartRef);
+        await setDoc(reference, {
+          uid: user.uid,
+          productId: product.id,
+          quantity: count,
+          ...product,
+        });
+
+        toast.success(`${product.name} added to cart successfully`, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+    } else {
+      toast.warning(`You need to login to perform this function`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
-  console.log(quantitys);
-  console.log(product);
 
   return (
     <Container fluid className={styles.page}>
@@ -40,7 +126,6 @@ const ItemDetail = ({ data }) => {
         <Sologan text="SHOP / DETAIL" />
       </Container>
       <section className={styles.mtT80}>
-        <ToastContainer />
         <Container>
           <Row className={styles.row} key={data.id}>
             <Col lg={5}>
@@ -61,10 +146,7 @@ const ItemDetail = ({ data }) => {
                     <p>{quantitys}</p>
                     <p onClick={countUp}>+</p>
                   </div>
-                  <div
-                    className=""
-                    onClick={() => handleAddToCartClick(data.id)}
-                  >
+                  <div className="" onClick={() => handleAddtoCart(data)}>
                     <ButtonBlack text="ADD TO CART" />
                   </div>
                 </div>

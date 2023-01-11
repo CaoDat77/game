@@ -37,31 +37,6 @@ function Shop({ data = [], filter, url }) {
 
   const { items } = useSelector(selectCart);
   const [cart, setCart] = React.useState([]);
-  React.useEffect(() => {
-    if (typeof window !== "undefined") {
-      if (!localStorage.getItem("cart")) {
-        localStorage.setItem("cart", JSON.stringify(cart));
-      } else {
-        let toLocal = localStorage.getItem("cart");
-        // let toJava = JSON.parse(toLocal);
-        console.log(toLocal);
-        let toJava = setCart(items);
-        localStorage.setItem("cart", JSON.stringify(toJava));
-      }
-      // let getLocal = localStorage.getItem("cart");
-
-      // let toJava = JSON.parse(getLocal);
-      // let sort = new Set(toJava);
-      // let array = [...sort];
-      // let flat = array.flat(Infinity);
-      // console.log(flat);
-      // let newSet = new Set(flat);
-      // console.log(newSet);
-      // let haha = toJava.length - 1;
-
-      // let list = toJava[haha];
-    }
-  }, [items.length]);
 
   const [searchText, setSearchText] = React.useState("");
   const [sort, setSort] = React.useState("");
@@ -124,7 +99,6 @@ function Shop({ data = [], filter, url }) {
           SHOP
         </h1>
       </Container>
-      <ToastContainer />
       <section className={styles.mT80}>
         <Container>
           <Row>

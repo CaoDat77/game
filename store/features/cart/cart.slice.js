@@ -12,7 +12,7 @@ const cartSlice = createSlice({
     addItem: (state, { payload: { productId, quantity } }) => {
       const itemIndex = state.findIndex((item) => item.productId == productId);
       if (itemIndex !== -1) {
-        notify2();
+        // notify2();
         const newItem = {
           ...state[itemIndex],
           quantity: state[itemIndex].quantity + quantity,
@@ -23,7 +23,7 @@ const cartSlice = createSlice({
 
         return newState;
       } else {
-        notify();
+        // notify();
         return [...state, { productId, quantity }];
       }
     },
@@ -94,7 +94,6 @@ export const selectCart = (state) => {
     (total, item) => (total += item.product.price * item.quantity),
     0
   );
-
 
   return {
     items,
