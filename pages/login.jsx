@@ -19,11 +19,11 @@ const Login = () => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
+  console.log(auth);
   const {
     reset: reset3,
     register: register3,
     handleSubmit: handleSubmit3,
-    getValues,
     formState: { errors: errors3, isSubmitSuccessful },
   } = useForm({
     mode: "onSubmit",
@@ -137,8 +137,8 @@ const Login = () => {
             Google
           </Button>
         </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </>
   );
 };

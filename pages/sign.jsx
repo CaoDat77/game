@@ -20,6 +20,7 @@ const Sign = () => {
   const provider = new GoogleAuthProvider();
 
   const {
+    reset: reset2,
     register: register2,
     handleSubmit: handleSubmit2,
     getValues,
@@ -75,23 +76,13 @@ const Sign = () => {
           <form
             key={2}
             action=""
-            onSubmit={handleSubmit2((data) => { 
+            onSubmit={handleSubmit2((data) => {
               createUserWithEmailAndPassword(auth, data.email, data.password)
                 .then(() => {
                   updateProfile(auth.currentUser, {
                     displayName: data.name,
                   });
-
-                  toast.success(`Login successfully`, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                  });
+                  toast.success(`Login successfully`);
                   reset2();
                   router.push("/");
                 })
@@ -183,8 +174,8 @@ const Sign = () => {
             Google
           </Button>
         </div>
+        <ToastContainer />
       </div>
-      <ToastContainer />
     </>
   );
 };
