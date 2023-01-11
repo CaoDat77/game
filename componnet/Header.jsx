@@ -23,8 +23,6 @@ function Header() {
   //auth
   const user = useSelector(selectUser);
   const auth = getAuth(app);
-  console.log(auth);
-  console.log(user);
 
   React.useEffect(() => {
     auth.onAuthStateChanged((auth, error) => {
