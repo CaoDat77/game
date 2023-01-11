@@ -1,11 +1,9 @@
-
-
 .bg {
-  margin: 0;
+  margin-top: 12rem;
   padding: 0 !important;
-  height: 100vh;
+  height: 50vh;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("/shop/pic-1.jpg");
+    url("/shop/pic-1.jpeg");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -38,7 +36,7 @@
   padding: 1rem 2rem;
 
   outline: none;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-family: "EB Garamond", serif;
   color: #333;
 }
@@ -53,17 +51,38 @@
 
 .select {
   width: 100%;
-
   padding: 1rem 2rem;
   outline: none;
   font-size: 2rem;
   font-family: "EB Garamond", serif;
   color: #333;
+  cursor: pointer;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.select option {
+  cursor: pointer;
+}
+
+.boxSelect {
+  position: relative;
+}
+
+.arrowDown {
+  position: absolute;
+  top: 1.6rem;
+  right: 2rem;
+  z-index: -999;
+}
+
+.arrowDown svg {
+  font-size: 2rem;
 }
 
 .icon {
   position: absolute;
-  top: 2rem;
+  top: 1.6rem;
   right: 2rem;
 }
 

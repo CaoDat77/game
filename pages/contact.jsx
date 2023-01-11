@@ -47,9 +47,11 @@ function Contact() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-        <Container>
-          <Sologan text="CONTACT US" />
-        </Container>
+        <h1
+          style={{ fontSize: "5rem", color: "white", letterSpacing: "0.3rem" }}
+        >
+          CONTACT US
+        </h1>
       </Container>
       <Container>
         <section className={styles.mgT80}>

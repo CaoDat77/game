@@ -1,7 +1,7 @@
 .bg {
   background-color: #f2f1ee;
   height: 10rem;
-  margin-top: 10rem;
+  margin-top: 12rem;
   padding: 0;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .img {
-  height: 55rem ;
+  height: 55rem;
   width: 100%;
   object-fit: cover;
 }

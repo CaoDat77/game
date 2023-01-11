@@ -9,13 +9,14 @@ import Slider from "../componnet/Slider";
 import Blog from "../componnet/BlogHome";
 import Sologan from "../componnet/Sologan";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { toast, ToastContainer } from "react-toastify";
 function Home() {
   return (
     <div className={styles.page}>
+      <ToastContainer />
       <div className={styles.haha}>
         <Sologan text="DECOR" />
       </div>
-
       <div className={styles.container}>
         <section className={styles.mgT80}>
           <Row>
@@ -55,7 +56,6 @@ function Home() {
           </Row>
         </section>
       </div>
-
       <section className={styles.mgT80}>
         <Container fluid>
           <Row>
@@ -86,7 +86,6 @@ function Home() {
           </Row>
         </Container>
       </section>
-
       <section className={styles.mgT80}>
         <div className={styles.container}>
           <Row>
@@ -135,13 +134,11 @@ function Home() {
           </Row>
         </div>
       </section>
-
       <section className={styles.mgT80}>
         <Container className={styles.border}>
           <Slider />
         </Container>
       </section>
-
       <section className={styles.mgT80}>
         <div className={styles.container}>
           <h1 className={styles.blog}>

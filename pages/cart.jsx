@@ -8,49 +8,20 @@ import Sologan from "../componnet/Sologan";
 import CloseIcon from "@mui/icons-material/Close";
 import ButtonBlack from "../componnet/ButtonBlack";
 import Link from "next/link";
-import React from "react";
-import {
-  getFirestore,
-  collection,
-  doc,
-  deleteDoc,
-  setDoc,
-  onSnapshot,
-  updateDoc,
-  query,
-} from "firebase/firestore";
-import { app } from "../lib/firebase";
+import React, { useState } from "react";
 
 function Cart() {
   const dispatch = useDispatch();
   const { items, totalPrice, incQty, decQty, removeItem, clearItem } =
     useSelector(selectCart);
+  const [cart, setCart] = React.useState([]);
 
-  const cartRef = collection(getFirestore(app), "store");
-  const [carts, setCart] = React.useState([]);
-  console.log(cartRef);
-
-  // cartRef.add(items);
-
-  React.useEffect(() => {
-    const q = query(cartRef);
-    onSnapshot(q, async (querySnapshot) => {
-      let data = [];
-      querySnapshot.forEach((doc) => {
-        console.log({ ...doc.data(), id: doc.id });
-        data.push({ ...doc.data(), id: doc.id });
-      });
-      setCart(data.filter((item) => item));
-    });
-    console.log(carts);
-  }, []);
-
-
-  const handleDelete = (productId) => {
-    if (confirm("Xoas sanr pham?")) {
-      dispatch(removeItem(productId));
-    }
-  };
+  // else {
+  //   let getLocal = localStorage.getItem("cart");
+  //   let toJava = JSON.parse(getLocal);
+  //   toJava.push(items);
+  //   localStorage.setItem("cart", JSON.stringify(toJava));
+  // }
 
   const incrementCart = async (productId, quantity) => {
     const reference = doc(cartRef, productId);
@@ -58,12 +29,6 @@ function Cart() {
       quantity: quantity + 1,
     });
   };
-
-  // const toLocal = localStorage.setItem("cart", JSON.stringify(items));
-  // const getLocal = localStorage.getItem("cart");
-  // const toJavaScript = JSON.parse(getLocal);
-  // console.log(toJavaScript);
-  // console.log(items);
 
   return (
     <Container fluid className={styles.page}>
@@ -74,7 +39,7 @@ function Cart() {
       </Container>
       <section className={styles.mT80}>
         <Container>
-          {items.length === 0 ? (
+          {cart.length === 0 ? (
             <div></div>
           ) : (
             <Row className={styles.line}>
@@ -99,7 +64,7 @@ function Cart() {
             </Row>
           )}
 
-          {items.length === 0 ? (
+          {cart.length === 0 ? (
             <div className={styles.empty}>
               <h1>YOUR CART IS CURRENTLY EMPTY.</h1>
               <Link href="/products">
@@ -107,7 +72,7 @@ function Cart() {
               </Link>
             </div>
           ) : (
-            items.map((item) => (
+            cart.map((item) => (
               <Row className={styles.center} key={item.product.id}>
                 <Col lg={2} xs={1}>
                   <Row className="">
@@ -153,7 +118,7 @@ function Cart() {
             ))
           )}
 
-          {items.length === 0 ? (
+          {cart.length === 0 ? (
             <div></div>
           ) : (
             <div className="">

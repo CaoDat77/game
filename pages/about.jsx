@@ -9,7 +9,7 @@ function About() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg} id="#">
-        <Sologan text="ABOUT US" />
+        <h1 style={{ color: "white", fontSize: "5rem" ,letterSpacing: "0.3rem"}}>ABOUT US</h1>
       </Container>
       <section>
         <Container className={styles.mgT80}>
@@ -107,7 +107,7 @@ function About() {
         </Container>
       </section>
 
-      <section className={styles.mgT80}>
+      <section className={styles.logo}>
         <Container>
           <Row>
             <Col lg={2}>

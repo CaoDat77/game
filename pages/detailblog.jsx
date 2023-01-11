@@ -8,7 +8,11 @@ function DetailBlog() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-        <Sologan text="BLOG" />
+        <h1
+          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
+        >
+          DETAIL BLOG
+        </h1>
       </Container>
 
       {/* <Container className={styles.Breadcrumbs}>

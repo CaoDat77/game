@@ -6,6 +6,7 @@ import Product from "../../componnet/item";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { useSelector, useDispatch } from "react-redux";
 import {
   selectProductsList,
@@ -15,18 +16,8 @@ import "animate.css";
 import { Box, FormGroup } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { ToastContainer, toast } from "react-toastify";
-import {
-  getFirestore,
-  collection,
-  doc,
-  deleteDoc,
-  setDoc,
-  onSnapshot,
-  updateDoc,
-  query,
-} from "firebase/firestore";
-import { app } from "../../lib/firebase";
+
+import { selectCart } from "../../store/features/cart/cart.slice";
 
 function Shop({ data = [], filter, url }) {
   const {
@@ -44,7 +35,36 @@ function Shop({ data = [], filter, url }) {
     dispatch(loadProduct({ productId: 1 }));
   }, []);
 
+  const { items } = useSelector(selectCart);
+  const [cart, setCart] = React.useState([]);
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (!localStorage.getItem("cart")) {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      } else {
+        let toLocal = localStorage.getItem("cart");
+        // let toJava = JSON.parse(toLocal);
+        console.log(toLocal);
+        let toJava = setCart(items);
+        localStorage.setItem("cart", JSON.stringify(toJava));
+      }
+      // let getLocal = localStorage.getItem("cart");
+
+      // let toJava = JSON.parse(getLocal);
+      // let sort = new Set(toJava);
+      // let array = [...sort];
+      // let flat = array.flat(Infinity);
+      // console.log(flat);
+      // let newSet = new Set(flat);
+      // console.log(newSet);
+      // let haha = toJava.length - 1;
+
+      // let list = toJava[haha];
+    }
+  }, [items.length]);
+
   const [searchText, setSearchText] = React.useState("");
+  const [sort, setSort] = React.useState("");
   const handleSearchTextChange = (e) => {
     setSearchText(e.target.value);
     dispatch(searchByName(e.target.value.toLowerCase()));
@@ -98,7 +118,11 @@ function Shop({ data = [], filter, url }) {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-        <Sologan text="SHOP" />
+        <h1
+          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
+        >
+          SHOP
+        </h1>
       </Container>
       <section className={styles.mT80}>
         <Container>
@@ -120,11 +144,16 @@ function Shop({ data = [], filter, url }) {
                 </div>
                 <div className={styles.sort}>
                   <h1>Sort</h1>
-                  <select className={styles.select} onChange={handleSort}>
-                    <option>Default Sorting</option>
-                    <option value="toHigh">Low to High</option>
-                    <option value="toLow">High to Low</option>
-                  </select>
+                  <div className={styles.boxSelect}>
+                    <select className={styles.select} onChange={handleSort}>
+                      <option>Default Sorting</option>
+                      <option value="toHigh">Low to High</option>
+                      <option value="toLow">High to Low</option>
+                    </select>
+                    <div className={styles.arrowDown}>
+                      <KeyboardArrowDownIcon />
+                    </div>
+                  </div>
                 </div>
                 <div className={styles.mT20}>
                   <h1>Categories</h1>
@@ -178,7 +207,6 @@ function Shop({ data = [], filter, url }) {
           </Row>
         </Container>
       </section>
-      <ToastContainer />
     </Container>
   );
 }

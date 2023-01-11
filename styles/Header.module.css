@@ -146,22 +146,25 @@
 .iconCart::before {
   content: attr(count);
   position: absolute;
-  top: 1.2rem;
-  right: 0.5rem;
-  width: 2.5rem;
-  height: 2.5rem;
+  top: 1.4rem;
+  right: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
   color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 1rem;
+  background-color: red;
 }
 
 @media screen and (max-width: 574px) {
   .iconCart::before {
     top: -1rem;
     right: -1.5rem;
-    font-size: 2rem;
+    font-size: 1rem;
   }
 
   .navBg {
@@ -184,7 +187,11 @@
     display: block;
   }
 
-  .ul li:last-child {
+  .iconCart {
+    display: block;
+  }
+
+  .ul .iconCart {
     display: block;
     padding: unset;
   }

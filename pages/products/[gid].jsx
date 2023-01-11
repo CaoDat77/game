@@ -7,7 +7,7 @@ import Sologan from "../../componnet/Sologan";
 import { style } from "@mui/system";
 import Link from "next/link";
 import { addItem } from "../../store/features/cart/cart.slice";
-import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { selectProductById } from "../../store/features/products/products.slice";
 import ButtonBlack from "../../componnet/ButtonBlack";
 const ItemDetail = ({ data }) => {
@@ -30,8 +30,6 @@ const ItemDetail = ({ data }) => {
 
   const handleAddToCartClick = (productId) => {
     dispatch(addItem({ productId: productId, quantity: quantitys }));
-    // setSearchText({ data });
-    // console.log(searchText);
   };
   console.log(quantitys);
   console.log(product);
@@ -42,6 +40,7 @@ const ItemDetail = ({ data }) => {
         <Sologan text="SHOP / DETAIL" />
       </Container>
       <section className={styles.mtT80}>
+        <ToastContainer />
         <Container>
           <Row className={styles.row} key={data.id}>
             <Col lg={5}>
