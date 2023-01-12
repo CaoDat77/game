@@ -11,6 +11,7 @@ import ButtonBlack from "../componnet/ButtonBlack";
 import { getAuth } from "firebase/auth";
 import { selectUser } from "../store/features/auth/auth.slice";
 import React from "react";
+import { useRouter } from "next/router";
 import {
   getFirestore,
   collection,
@@ -21,8 +22,11 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { app } from "../lib/firebase";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 function CheckBox() {
+  const router = useRouter();
   const [carts, setCart] = React.useState([]);
   const auth = getAuth(app);
   const user = useSelector(selectUser);
@@ -39,7 +43,14 @@ function CheckBox() {
     });
   }, [user == null ? null : user.uid]);
 
-  console.log(carts);
+  const deleteAll = async (id) => {
+    const reference = doc(cartRef, id);
+    await deleteDoc(reference);
+  };
+
+  const clearCart = () => {
+    carts.forEach((item) => deleteAll(item.id));
+  };
 
   const {
     register,
@@ -112,7 +123,35 @@ function CheckBox() {
           <Container>
             <form
               action=""
-              onSubmit={handleSubmit((data) => console.log(data))}
+              onSubmit={handleSubmit((data) => {
+                Swal.fire({
+                  title: "Are you sure you want to order?",
+                  icon: "question",
+                  iconHtml: "?",
+                  confirmButtonText: "Yes",
+                  cancelButtonText: "No",
+                  showCancelButton: true,
+                  showCloseButton: true,
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    Swal.fire({
+                      title: " Order Success",
+                      showConfirmButton: false,
+                      timer: 1500,
+                      icon: "success",
+                    });
+                    const reference = collection(getFirestore(app), "checkout");
+                    addDoc;
+                    clearCart();
+                    router.push("/cart");
+                  }
+                });
+                // .then((result2) => {
+                //   if (result2.isConfirmed) {
+                //
+                //   }
+                // });
+              })}
             >
               <Row>
                 <Col lg={6}>
@@ -261,14 +300,6 @@ function CheckBox() {
               </Row>
               <ButtonBlack text="PLACE ORDER" />
             </form>
-
-            {isSubmitSuccessful ? (
-              <div className={styles.formMessage}>
-                Thank you for your message. It has been sent.
-              </div>
-            ) : (
-              ""
-            )}
           </Container>
         ) : (
           <></>
