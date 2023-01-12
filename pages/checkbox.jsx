@@ -132,6 +132,7 @@ function CheckBox() {
                   cancelButtonText: "No",
                   showCancelButton: true,
                   showCloseButton: true,
+                  width: "50rem",
                 }).then((result) => {
                   if (result.isConfirmed) {
                     Swal.fire({
@@ -139,6 +140,8 @@ function CheckBox() {
                       showConfirmButton: false,
                       timer: 1500,
                       icon: "success",
+                      width: "50rem",
+                      he,
                     });
                     const reference = collection(getFirestore(app), "checkout");
                     addDoc;
@@ -146,11 +149,6 @@ function CheckBox() {
                     router.push("/cart");
                   }
                 });
-                // .then((result2) => {
-                //   if (result2.isConfirmed) {
-                //
-                //   }
-                // });
               })}
             >
               <Row>
