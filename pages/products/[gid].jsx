@@ -22,20 +22,21 @@ import {
 import { app } from "../../lib/firebase";
 import { getAuth } from "firebase/auth";
 import { toast } from "react-toastify";
-
+import { selectUser } from "../../store/features/auth/auth.slice";
 const ItemDetail = ({ data }) => {
   const auth = getAuth(app);
+  const user = useSelector(selectUser);
   const [cart, setCart] = React.useState([]);
   const dispatch = useDispatch();
-  const [quantitys, setQuantity] = React.useState(1);
+  const [quantity, setQuantity] = React.useState(1);
   const product = useSelector(selectProductById(data.id));
 
   const countUp = () => {
-    setQuantity(quantitys + 1);
+    setQuantity(quantity + 1);
   };
 
   const countDown = () => {
-    if (quantitys > 1) {
+    if (quantity > 1) {
       setQuantity(quantitys - 1);
     }
     if (quantitys === 1) {
@@ -74,7 +75,7 @@ const ItemDetail = ({ data }) => {
       if (check.length > 0) {
         const reference = doc(cartRef, check[0].id);
         await updateDoc(reference, {
-          quantity: check[0].quantity + count,
+          quantity: check[0].quantity + quantity,
         });
         toast.success(`${product.name} added to cart successfully`, {
           position: "top-right",
@@ -91,7 +92,7 @@ const ItemDetail = ({ data }) => {
         await setDoc(reference, {
           uid: user.uid,
           productId: product.id,
-          quantity: count,
+          quantity: quantity,
           ...product,
         });
 
@@ -143,7 +144,7 @@ const ItemDetail = ({ data }) => {
                 <div className={styles.flex}>
                   <div className={styles.p}>
                     <p onClick={countDown}>-</p>
-                    <p>{quantitys}</p>
+                    <p>{quantity}</p>
                     <p onClick={countUp}>+</p>
                   </div>
                   <div className="" onClick={() => handleAddtoCart(data)}>

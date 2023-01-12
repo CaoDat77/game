@@ -19,8 +19,11 @@ import {
 import { app } from "../lib/firebase";
 import { ToastContainer, toast } from "react-toastify";
 import { getAuth } from "firebase/auth";
+import { selectUser } from "../store/features/auth/auth.slice";
 
 function Product({ product }) {
+  const user = useSelector(selectUser);
+
   const dispatch = useDispatch();
   const auth = getAuth(app);
 
