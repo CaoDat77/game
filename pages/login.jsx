@@ -63,9 +63,9 @@ const Login = () => {
               signInWithEmailAndPassword(auth, data.email, data.password);
 
               reset3();
-              // if (auth) {
-              //   router.push("/");
-              // }
+              if (auth) {
+                router.push("/");
+              }
             })}
           >
             <div className={styles.field}>
