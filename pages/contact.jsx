@@ -111,7 +111,7 @@ function Contact() {
 
         <section className={styles.mgT80}>
           <Row>
-            <Col xs={6} lg={3}>
+            <Col xs={12} lg={3}>
               <div className={styles.item}>
                 <img
                   className={styles.img}
@@ -127,7 +127,7 @@ function Contact() {
                 <p className={styles.mail}>INFO@EXAMPLE.COM</p>
               </div>
             </Col>
-            <Col xs={6} lg={3}>
+            <Col xs={12} lg={3}>
               <div className={styles.item}>
                 <img
                   className={styles.img}
@@ -143,7 +143,7 @@ function Contact() {
                 <p className={styles.mail}>INFO@EXAMPLE.COM</p>
               </div>
             </Col>
-            <Col xs={6} lg={3}>
+            <Col xs={12} lg={3}>
               <div className={styles.item}>
                 <img
                   className={styles.img}
@@ -159,7 +159,7 @@ function Contact() {
                 <p className={styles.mail}>INFO@EXAMPLE.COM</p>
               </div>
             </Col>
-            <Col xs={6} lg={3}>
+            <Col xs={12} lg={3}>
               <div className={styles.item}>
                 <img
                   className={styles.img}

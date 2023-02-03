@@ -31,9 +31,6 @@ function Shop({ data = [], filter, url }) {
     searchByName,
   } = useSelector(selectProductsList);
   const dispatch = useDispatch();
-  React.useEffect(() => {
-    dispatch(loadProduct({ productId: 1 }));
-  }, []);
 
   const { items } = useSelector(selectCart);
   const [cart, setCart] = React.useState([]);

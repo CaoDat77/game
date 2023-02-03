@@ -17,12 +17,32 @@ import {
   onSnapshot,
   query,
 } from "firebase/firestore";
+import { loadProduct } from "../store/features/products/products.slice";
 import { setUser } from "../store/features/auth/auth.slice";
+import PersonIcon from "@mui/icons-material/Person";
 function Header() {
   const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(loadProduct({ productId: 1 }));
+  }, []);
   //auth
   const user = useSelector(selectUser);
   const auth = getAuth(app);
+  // cart
+  const [carts, setCart] = React.useState([]);
+  const cartRef = collection(getFirestore(app), "store");
+  React.useEffect(() => {
+    const q = query(cartRef);
+    const cartlist = onSnapshot(q, (querySnapshot) => {
+      let data = [];
+      querySnapshot.forEach((doc) => {
+        data.push({ ...doc.data(), id: doc.id });
+      });
+      setCart(data.filter((item) => item.uid == (user && user.uid)));
+    });
+
+    return () => cartlist();
+  }, [user == null ? null : user.uid]);
 
   React.useEffect(() => {
     auth.onAuthStateChanged((auth, error) => {
@@ -48,8 +68,6 @@ function Header() {
   const nav = React.useRef();
   const ul = React.useRef();
   const list = React.useRef();
-
-  const { items } = useSelector(selectCart);
 
   React.useEffect(() => {
     const handleClose = () => {
@@ -105,11 +123,6 @@ function Header() {
         }
       }
     };
-    window.addEventListener("scroll", handleScroll);
-  });
-
-  React.useEffect(() => {
-    let li = document.querySelectorAll(".link");
 
     if (user !== null) {
       let logout = document.querySelector(".logout");
@@ -126,12 +139,14 @@ function Header() {
         item.style.color = "black";
       });
     }
-  });
+    window.addEventListener("scroll", handleScroll);
+  }, [router.pathname, user]);
+
+  React.useEffect(() => {}, [router.pathname, user]);
 
   const closeMenu = () => {
     menu.current.style.transform = "translateX(-100%)";
   };
-  let src = router.pathname;
 
   return (
     <Container fluid className={styles.center}>
@@ -203,11 +218,22 @@ function Header() {
                 SHOP
               </Link>
             </li>
-            <li className={styles.iconCart} count={0}>
-              <Link href="/cart" className="link">
-                <ShoppingCartTwoToneIcon className={styles.cart} />
-              </Link>
-            </li>
+            {auth.currentUser && carts.length === 0 ? (
+              <li className={styles.iconCart} count={0}>
+                <Link href="/cart" className="link">
+                  <ShoppingCartTwoToneIcon className={styles.cart} />
+                </Link>
+              </li>
+            ) : (
+              <>
+                {" "}
+                <li className={styles.iconCart} count={carts.length}>
+                  <Link href="/cart" className="link">
+                    <ShoppingCartTwoToneIcon className={styles.cart} />
+                  </Link>
+                </li>
+              </>
+            )}
 
             <li>
               {user !== null ? (
@@ -224,11 +250,11 @@ function Header() {
                   className="logout"
                 >
                   {" "}
-                  Log Out
+                  <PersonIcon className={styles.logged} />
                 </p>
               ) : (
                 <Link href="/login" className="link">
-                  LOG IN
+                  <PersonIcon className={styles.cart} />
                 </Link>
               )}
             </li>

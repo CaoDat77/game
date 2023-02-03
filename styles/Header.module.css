@@ -160,6 +160,11 @@
   background-color: red;
 }
 
+.logged {
+  color: yellow;
+  font-size: 2rem;
+}
+
 @media screen and (max-width: 574px) {
   .iconCart::before {
     top: -1rem;

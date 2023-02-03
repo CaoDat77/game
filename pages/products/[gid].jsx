@@ -124,7 +124,11 @@ const ItemDetail = ({ data }) => {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg} id="#">
-        <Sologan text="SHOP / DETAIL" />
+        <h1
+          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
+        >
+          SHOP / DETAIL
+        </h1>
       </Container>
       <section className={styles.mtT80}>
         <Container>

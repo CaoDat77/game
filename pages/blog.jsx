@@ -9,7 +9,11 @@ function Blog() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-       <h1 style={{color:"white",fontSize:"5rem",letterSpacing:"0.3rem"}}>BLOG</h1>
+        <h1
+          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
+        >
+          BLOG
+        </h1>
       </Container>
       <section className={styles.mT80}>
         <Container>
@@ -37,13 +41,12 @@ function Blog() {
                 <div className={styles.over}>
                   <img className={styles.img} src="/blog/pic-3.jpg" alt="" />
                 </div>
-
                 <h1 className={styles.h1}>
                   Collective Living Challenge In modern
                 </h1>
                 <p className={styles.text}>
-                  I think that you should be able to select more than one reason
-                  for rating.{" "}
+                  Success needs hard work. Don’t listen to these ‘get rich
+                  quick’ schemes.
                 </p>
                 <p className={styles.read}>
                   Read more <ArrowForwardSharpIcon />
@@ -58,8 +61,8 @@ function Blog() {
 
                 <h1 className={styles.h1}>Utilizing wood in architecture</h1>
                 <p className={styles.text}>
-                  I think that you should be able to select more than one reason
-                  for rating.{" "}
+                  Echnological expertise. Through a unique combination of
+                  engineering, construction and design disciplines
                 </p>
                 <p className={styles.read}>
                   Read more <ArrowForwardSharpIcon />
@@ -75,12 +78,10 @@ function Blog() {
                   <img className={styles.img} src="/blog/pic-5.jpg" alt="" />
                 </div>
 
-                <h1 className={styles.h1}>
-                  Building the architecture of the future
-                </h1>
+                <h1 className={styles.h1}>Brooklyn Penthouse</h1>
                 <p className={styles.text}>
-                  I think that you should be able to select more than one reason
-                  for rating.{" "}
+                  Through a unique combination of engineering, construction and
+                  design disciplines and expertise,
                 </p>
                 <p className={styles.read}>
                   Read more <ArrowForwardSharpIcon />
@@ -94,12 +95,10 @@ function Blog() {
                   <img className={styles.img} src="/blog/pic-6.jpg" alt="" />
                 </div>
 
-                <h1 className={styles.h1}>
-                  Building the architecture of the future
-                </h1>
+                <h1 className={styles.h1}>Modern Architecture</h1>
                 <p className={styles.text}>
-                  I think that you should be able to select more than one reason
-                  for rating.{" "}
+                  Urban design draws together the many strands of place-making,
+                  environmental stewardship,
                 </p>
                 <p className={styles.read}>
                   Read more <ArrowForwardSharpIcon />
@@ -113,12 +112,10 @@ function Blog() {
                   <img className={styles.img} src="/blog/pic-7.jpg" alt="" />
                 </div>
 
-                <h1 className={styles.h1}>
-                  Building the architecture of the future
-                </h1>
+                <h1 className={styles.h1}>Prestigious</h1>
                 <p className={styles.text}>
-                  I think that you should be able to select more than one reason
-                  for rating.{" "}
+                  Since the 1980s, as the complexity of buildings began to
+                  increase, the field of architecture became multi-disciplinary
                 </p>
                 <p className={styles.read}>
                   Read more <ArrowForwardSharpIcon />
