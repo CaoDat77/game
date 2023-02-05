@@ -6,7 +6,6 @@ import { style } from "@mui/system";
 import { useForm } from "react-hook-form";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import { useDispatch, useSelector } from "react-redux";
-import Accordion from "react-bootstrap/Accordion";
 import ButtonBlack from "../componnet/ButtonBlack";
 import { getAuth } from "firebase/auth";
 import { selectUser } from "../store/features/auth/auth.slice";
@@ -141,7 +140,6 @@ function CheckBox() {
                       timer: 1500,
                       icon: "success",
                       width: "50rem",
-                      he,
                     });
                     const reference = collection(getFirestore(app), "checkout");
                     addDoc;

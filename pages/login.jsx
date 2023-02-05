@@ -59,13 +59,36 @@ const Login = () => {
             key={3}
             action=""
             onSubmit={handleSubmit3((data) => {
-              logSuccess();
-              signInWithEmailAndPassword(auth, data.email, data.password);
+              signInWithEmailAndPassword(auth, data.email, data.password)
+                .then(() => {
+                  if (auth.currentUser) {
+                    toast.success(`Login successfully`, {
+                      position: "top-right",
+                      autoClose: 5000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "light",
+                    });
+                    reset3();
 
-              reset3();
-              if (auth) {
-                router.push("/");
-              }
+                    router.push("/");
+                  }
+                })
+                .catch((err) => {
+                  toast.error(`Incorrect account or password`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                });
             })}
           >
             <div className={styles.field}>

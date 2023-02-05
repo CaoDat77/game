@@ -68,6 +68,7 @@ function Header() {
   const nav = React.useRef();
   const ul = React.useRef();
   const list = React.useRef();
+  const cart = React.useRef();
 
   React.useEffect(() => {
     const handleClose = () => {
@@ -105,7 +106,7 @@ function Header() {
         }
       } else if (router.pathname != "/") {
         if (window.scrollY > 100) {
-          open.current.style.color = "black";
+          open.current.style.color = "#000";
           navigation.style.backgroundColor = "#fff";
           navigation.style.boxShadow = "1px 1px 10px #000";
           listNav.style.marginTop = "0";
@@ -221,7 +222,7 @@ function Header() {
             {auth.currentUser && carts.length === 0 ? (
               <li className={styles.iconCart} count={0}>
                 <Link href="/cart" className="link">
-                  <ShoppingCartTwoToneIcon className={styles.cart} />
+                  <ShoppingCartTwoToneIcon className={styles.cart} ref={cart} />
                 </Link>
               </li>
             ) : (
@@ -237,25 +238,38 @@ function Header() {
 
             <li>
               {user !== null ? (
-                <p
-                  onClick={() => {
-                    auth.signOut();
-                  }}
-                  style={{
-                    cursor: "pointer",
-                    color: "yellow",
-                    fontWeight: "600",
-                    margin: 0,
-                  }}
-                  className="logout"
-                >
-                  {" "}
-                  <PersonIcon className={styles.logged} />
-                </p>
+                <div className={styles.user}>
+                  <Link href="/account">
+                    <PersonIcon
+                      style={{
+                        cursor: "pointer",
+                        color: "yellow",
+                        fontWeight: "600",
+                        margin: 0,
+                      }}
+                      className={styles.logged}
+                    />
+                  </Link>
+                </div>
               ) : (
                 <Link href="/login" className="link">
                   <PersonIcon className={styles.cart} />
                 </Link>
+              )}
+            </li>
+
+            <li>
+              {user !== null ? (
+                <div
+                  onClick={() => {
+                    auth.signOut();
+                  }}
+                  style={{ color: "yellow", cursor: "pointer" }}
+                >
+                  Log out
+                </div>
+              ) : (
+                ""
               )}
             </li>
           </ul>

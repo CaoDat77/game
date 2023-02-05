@@ -1,0 +1,23 @@
+.bg {
+  margin-top: 12rem;
+  height: 38rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url("/account/pic-1.jpg");
+  background-size: cover;
+  padding: 0 !important;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  text-align: center;
+  margin-top: 8rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.content label {
+  font-size: 1.6rem;
+  width: 10rem;
+}

@@ -13,6 +13,7 @@ import { selectUser } from "../store/features/auth/auth.slice";
 import { getAuth } from "firebase/auth";
 import { app } from "../lib/firebase";
 import { toast } from "react-toastify";
+import Swal from "sweetalert2";
 
 import {
   getFirestore,
@@ -138,7 +139,20 @@ function Cart() {
                     <Col lg={4} xs={12} className={styles.delete}>
                       <div
                         onClick={() => {
-                          handleRemoveItem(item.id);
+                          Swal.fire({
+                            title: "Do you want to delete the product?",
+                            icon: "question",
+                            iconHtml: "?",
+                            confirmButtonText: "Yes",
+                            cancelButtonText: "No",
+                            showCancelButton: true,
+                            showCloseButton: true,
+                            width: "50rem",
+                          }).then((result) => {
+                            if (result.isConfirmed) {
+                              handleRemoveItem(item.id);
+                            }
+                          });
                         }}
                       >
                         <CloseIcon />

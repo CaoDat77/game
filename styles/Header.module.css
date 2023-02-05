@@ -37,6 +37,8 @@
   display: flex;
   list-style: none;
   margin: 0;
+  align-items: center;
+ 
 }
 
 .ul li {
@@ -163,6 +165,24 @@
 .logged {
   color: yellow;
   font-size: 2rem;
+}
+
+.user {
+  position: relative;
+}
+
+.info {
+  display: none;
+  position: absolute;
+  top: 4.5rem;
+  right: 0;
+  width: 10rem;
+  background-color: #fff;
+  box-shadow: 1px 1px 10px #666;
+}
+
+li:last-child:hover .info {
+  display: block;
 }
 
 @media screen and (max-width: 574px) {
