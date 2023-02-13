@@ -8,7 +8,7 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <mete name="author" content="Đạt" />
+        <mete name="author"  />
       </Head>
       <body>
         <Main />

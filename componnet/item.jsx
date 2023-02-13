@@ -17,7 +17,7 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { app } from "../lib/firebase";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { getAuth } from "firebase/auth";
 import { selectUser } from "../store/features/auth/auth.slice";
 

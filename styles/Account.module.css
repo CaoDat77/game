@@ -21,3 +21,40 @@
   font-size: 1.6rem;
   width: 10rem;
 }
+
+.container {
+  margin-top: 5rem;
+  width: 100rem;
+  border-radius: 2rem;
+  -webkit-border-radius: 2rem;
+  -moz-border-radius: 2rem;
+  -ms-border-radius: 2rem;
+  -o-border-radius: 2rem;
+  overflow: hidden;
+  border: 1px solid #999;
+}
+
+.item:last-child {
+  border: none;
+}
+.item {
+  align-items: center;
+  border-bottom: 1px solid #999;
+  margin: 1rem 0;
+}
+
+.item div {
+  font-size: 1.6rem;
+  font-family: "Poppins", sans-serif;
+}
+
+.th {
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+}
+
+.th div h2 {
+  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}

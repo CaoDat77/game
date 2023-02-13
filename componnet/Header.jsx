@@ -11,6 +11,9 @@ import { useRouter } from "next/router";
 import { selectUser } from "../store/features/auth/auth.slice";
 import { getAuth } from "firebase/auth";
 import { app } from "../lib/firebase";
+import Swal from "sweetalert2";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   getFirestore,
   collection,
@@ -71,6 +74,8 @@ function Header() {
   const cart = React.useRef();
 
   React.useEffect(() => {
+    let a = document.querySelector("ul li a svg");
+    console.log(a);
     const handleClose = () => {
       menu.current.style.transform = "translateX(-100%)";
     };
@@ -85,9 +90,32 @@ function Header() {
     let listNav = list.current;
     let li = document.querySelectorAll(".link");
 
+    if (router.pathname == "/") {
+      a.style.color = "#fff";
+      open.current.style.color = "white";
+      li.forEach((item) => {
+        item.style.color = "white";
+      });
+    } else if (router.pathname != "/") {
+      a.style.color = "#000";
+      open.current.style.color = "black";
+      li.forEach((item) => {
+        item.style.color = "black";
+      });
+    }
+
+    console.log(router.pathname);
+
+    if (router.pathname == "/") {
+      console.log("true");
+    } else {
+      console.log("false");
+    }
+
     const handleScroll = () => {
-      if (router.pathname === "/") {
+      if (router.pathname == "/") {
         if (window.scrollY > 100) {
+          a.style.color = "#red";
           open.current.style.color = "black";
           navigation.style.backgroundColor = "#fff";
           navigation.style.boxShadow = "1px 1px 10px #000";
@@ -96,6 +124,7 @@ function Header() {
             item.style.color = "black";
           });
         } else if (window.scrollY < 100) {
+          a.style.color = "unset";
           open.current.style.color = "white";
           navigation.style.backgroundColor = "unset";
           navigation.style.boxShadow = "unset";
@@ -104,7 +133,7 @@ function Header() {
             item.style.color = "white";
           });
         }
-      } else if (router.pathname != "/") {
+      } else if (router.pathname !== "/") {
         if (window.scrollY > 100) {
           open.current.style.color = "#000";
           navigation.style.backgroundColor = "#fff";
@@ -129,21 +158,11 @@ function Header() {
       let logout = document.querySelector(".logout");
       // logout.style.color = "white";
     }
-    if (router.pathname === "/") {
-      open.current.style.color = "white";
-      li.forEach((item) => {
-        item.style.color = "white";
-      });
-    } else if (router.pathname !== "/") {
-      open.current.style.color = "black";
-      li.forEach((item) => {
-        item.style.color = "black";
-      });
-    }
-    window.addEventListener("scroll", handleScroll);
-  }, [router.pathname, user]);
 
-  React.useEffect(() => {}, [router.pathname, user]);
+    window.addEventListener("scroll", handleScroll);
+  }, [router.pathname]);
+
+  // React.useEffect(() => {}, [router.pathname, user]);
 
   const closeMenu = () => {
     menu.current.style.transform = "translateX(-100%)";
@@ -193,7 +212,7 @@ function Header() {
             </Link>
           </div>
 
-          <ul className={styles.ul} ref={ul}>
+          <ul className={styles.ul}>
             <li>
               <Link href="/" className="link">
                 HOME
@@ -253,25 +272,54 @@ function Header() {
                 </div>
               ) : (
                 <Link href="/login" className="link">
-                  <PersonIcon className={styles.cart} />
+                  <PersonIcon
+                    style={{
+                      cursor: "pointer",
+                      fontWeight: "600",
+                      margin: 0,
+                    }}
+                    className={styles.cart}
+                  />
                 </Link>
               )}
             </li>
 
-            <li>
-              {user !== null ? (
-                <div
-                  onClick={() => {
-                    auth.signOut();
-                  }}
-                  style={{ color: "yellow", cursor: "pointer" }}
-                >
-                  Log out
-                </div>
-              ) : (
-                ""
-              )}
-            </li>
+            {user !== null ? (
+              <li
+                onClick={() => {
+                  Swal.fire({
+                    title: "Are you sure you want to sign out?",
+                    icon: "question",
+                    iconHtml: "?",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    showCancelButton: true,
+                    showCloseButton: true,
+                    width: "50rem",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      toast.success(`Log out successfully`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                        theme: "light",
+                      });
+                      auth.signOut();
+                      router.push("/");
+                    }
+                  });
+                }}
+                style={{ color: "yellow", cursor: "pointer" }}
+              >
+                Log out
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </Container>
       </Container>

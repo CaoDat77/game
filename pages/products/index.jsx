@@ -16,7 +16,7 @@ import "animate.css";
 import { Box, FormGroup } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { selectCart } from "../../store/features/cart/cart.slice";
 
 function Shop({ data = [], filter, url }) {

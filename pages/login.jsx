@@ -22,7 +22,6 @@ const Login = () => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
-  console.log(auth);
   const {
     reset: reset3,
     register: register3,
@@ -149,7 +148,18 @@ const Login = () => {
                     router.push("/");
                   }
                 })
-                .catch((err) => console.error(err));
+                .catch((err) => {
+                  toast.error(`Incorrect account or password`, {
+                    position: "top-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                  });
+                });
             }}
           >
             Google

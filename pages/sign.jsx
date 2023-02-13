@@ -13,7 +13,7 @@ import {
 import { app } from "../lib/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ButtonBlack from "../componnet/ButtonBlack";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import { useRouter } from "next/router";
 
 const Sign = () => {
@@ -167,7 +167,6 @@ const Sign = () => {
             Google
           </Button>
         </div>
-        <ToastContainer />
       </div>
     </>
   );

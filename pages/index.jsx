@@ -9,11 +9,11 @@ import Slider from "../componnet/Slider";
 import Blog from "../componnet/BlogHome";
 import Sologan from "../componnet/Sologan";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 function Home() {
   return (
     <div className={styles.page}>
-      <ToastContainer />
+      
       <div className={styles.haha}>
         <Sologan text="DECOR" />
       </div>
