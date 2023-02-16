@@ -51,13 +51,21 @@ function Account() {
           <div className="">
             <div className="h1">My Account</div>
             <form action="">
-              <div>
+              <div className="">
                 <label className="">Email : </label>
-                <input type="text" defaultValue={user && user.email} />
+                <input
+                  className={styles.input}
+                  type="text"
+                  defaultValue={user && user.email}
+                />
               </div>
               <div>
                 <label className="">Name : </label>
-                <input type="text" defaultValue={user && user.displayName} />
+                <input
+                  className={styles.input}
+                  type="text"
+                  defaultValue={user && user.displayName}
+                />
               </div>
             </form>
           </div>

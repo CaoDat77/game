@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 
-const notify = () => toast("Đã thêm vào giỏ hàng");
-const notify2 = () => toast("Quanity++");
+
 
 const initialState = [];
 const cartSlice = createSlice({

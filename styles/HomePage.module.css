@@ -8,7 +8,8 @@
 }
 
 .haha {
-  height: 100vh;
+  margin-top: 12rem;
+  padding: 12rem 0;
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
     url("/home/banner.jpg");
   background-size: cover;

@@ -13,7 +13,6 @@ import { toast } from "react-toastify";
 function Home() {
   return (
     <div className={styles.page}>
-      
       <div className={styles.haha}>
         <Sologan text="DECOR" />
       </div>

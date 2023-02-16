@@ -88,69 +88,19 @@ function Header() {
 
     let navigation = nav.current;
     let listNav = list.current;
-    let li = document.querySelectorAll(".link");
-
-    if (router.pathname == "/") {
-      a.style.color = "#fff";
-      open.current.style.color = "white";
-      li.forEach((item) => {
-        item.style.color = "white";
-      });
-    } else if (router.pathname != "/") {
-      a.style.color = "#000";
-      open.current.style.color = "black";
-      li.forEach((item) => {
-        item.style.color = "black";
-      });
-    }
-
-    console.log(router.pathname);
-
-    if (router.pathname == "/") {
-      console.log("true");
-    } else {
-      console.log("false");
-    }
 
     const handleScroll = () => {
-      if (router.pathname == "/") {
-        if (window.scrollY > 100) {
-          a.style.color = "#red";
-          open.current.style.color = "black";
-          navigation.style.backgroundColor = "#fff";
-          navigation.style.boxShadow = "1px 1px 10px #000";
-          listNav.style.marginTop = "0";
-          li.forEach((item) => {
-            item.style.color = "black";
-          });
-        } else if (window.scrollY < 100) {
-          a.style.color = "unset";
-          open.current.style.color = "white";
-          navigation.style.backgroundColor = "unset";
-          navigation.style.boxShadow = "unset";
-          listNav.style.marginTop = "2rem";
-          li.forEach((item) => {
-            item.style.color = "white";
-          });
-        }
-      } else if (router.pathname !== "/") {
-        if (window.scrollY > 100) {
-          open.current.style.color = "#000";
-          navigation.style.backgroundColor = "#fff";
-          navigation.style.boxShadow = "1px 1px 10px #000";
-          listNav.style.marginTop = "0";
-          li.forEach((item) => {
-            item.style.color = "black";
-          });
-        } else {
-          open.current.style.color = "black";
-          navigation.style.backgroundColor = "unset";
-          listNav.style.marginTop = "2rem";
-          navigation.style.boxShadow = "unset";
-          li.forEach((item) => {
-            item.style.color = "black";
-          });
-        }
+      if (window.scrollY > 100) {
+        open.current.style.color = "black";
+        navigation.style.backgroundColor = "#fff";
+        navigation.style.boxShadow = "1px 1px 10px #000";
+        listNav.style.marginTop = "0";
+      } else if (window.scrollY < 100) {
+        a.style.color = "unset";
+        open.current.style.color = "white";
+        navigation.style.backgroundColor = "unset";
+        navigation.style.boxShadow = "unset";
+        listNav.style.marginTop = "2rem";
       }
     };
 
@@ -262,7 +212,7 @@ function Header() {
                     <PersonIcon
                       style={{
                         cursor: "pointer",
-                        color: "yellow",
+
                         fontWeight: "600",
                         margin: 0,
                       }}
@@ -313,7 +263,7 @@ function Header() {
                     }
                   });
                 }}
-                style={{ color: "yellow", cursor: "pointer" }}
+                style={{ cursor: "pointer" }}
               >
                 Log out
               </li>

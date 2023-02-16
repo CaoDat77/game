@@ -134,9 +134,11 @@ function CheckBox() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-        <Container>
-          <Sologan text="CART / CHECKOUT" />
-        </Container>
+        <h1
+          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
+        >
+          CART / CHECKOUT{" "}
+        </h1>
       </Container>
 
       <section className={styles.mT80}>
