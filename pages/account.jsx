@@ -52,24 +52,14 @@ function Account() {
         {auth.currentUser ? (
           <div className="">
             <div className="h1">My Account</div>
-            <form action="">
+            <div className={styles.info}>
               <div className="">
-                <label className="">Email : </label>
-                <input
-                  className={styles.input}
-                  type="text"
-                  defaultValue={user && user.email}
-                />
+                <p className={styles.input}>Email : {user && user.email} </p>
+                <p className={styles.input}>
+                  Name : {user && user.displayName}
+                </p>
               </div>
-              <div>
-                <label className="">Name : </label>
-                <input
-                  className={styles.input}
-                  type="text"
-                  defaultValue={user && user.displayName}
-                />
-              </div>
-            </form>
+            </div>
           </div>
         ) : (
           <div>

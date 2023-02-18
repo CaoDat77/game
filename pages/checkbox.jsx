@@ -29,7 +29,7 @@ function CheckBox() {
   const [carts, setCart] = React.useState([]);
   const auth = getAuth(app);
   const user = useSelector(selectUser);
-  const cartRef = collection(getFirestore(app), "store");
+  const cartRef = collection(getFirestore(app), "np");
 
   React.useEffect(() => {
     const q = query(cartRef);

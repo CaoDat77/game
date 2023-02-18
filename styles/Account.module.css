@@ -61,10 +61,10 @@
 }
 
 .input {
-  border: none;
   font-size: 1.6rem;
-  padding: 0 1rem;
-  width: 30rem;
 }
 
-
+.info {
+  display: flex;
+  justify-content: center;
+}
