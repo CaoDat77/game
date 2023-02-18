@@ -91,13 +91,13 @@ function Header() {
 
     const handleScroll = () => {
       if (window.scrollY > 100) {
-        open.current.style.color = "black";
+      
         navigation.style.backgroundColor = "#fff";
         navigation.style.boxShadow = "1px 1px 10px #000";
         listNav.style.marginTop = "0";
       } else if (window.scrollY < 100) {
         a.style.color = "unset";
-        open.current.style.color = "white";
+       
         navigation.style.backgroundColor = "unset";
         navigation.style.boxShadow = "unset";
         listNav.style.marginTop = "2rem";
