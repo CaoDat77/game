@@ -35,6 +35,8 @@ function Account() {
 
     console.log(bill);
     return () => pay();
+
+    console.log(user);
   }, [user == null ? null : user.uid]);
 
   return (

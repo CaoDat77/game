@@ -60,6 +60,7 @@ const Login = () => {
             onSubmit={handleSubmit3((data) => {
               signInWithEmailAndPassword(auth, data.email, data.password)
                 .then(() => {
+                  console.log(auth.currentUser.displayName);
                   if (auth.currentUser) {
                     toast.success(`Login successfully`, {
                       position: "top-right",

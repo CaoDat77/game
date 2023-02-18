@@ -9,6 +9,9 @@ import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   updateProfile,
+  addDoc,
+  collection,
+  getFirestore,
 } from "firebase/auth";
 import { app } from "../lib/firebase";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -65,8 +68,7 @@ const Sign = () => {
     required: "Please fill out this field",
     deps: ["password"],
     validate: {
-      match: (v) =>
-        v === getValues("password") || "password does not match",
+      match: (v) => v === getValues("password") || "password does not match",
     },
   });
 
@@ -81,6 +83,8 @@ const Sign = () => {
             onSubmit={handleSubmit2((data) => {
               createUserWithEmailAndPassword(auth, data.email, data.password)
                 .then(() => {
+                  // const reference = collection(getFirestore(app), "name");
+                  // addDoc(reference, data.name);
                   updateProfile(auth.currentUser, {
                     displayName: data.name,
                   });
@@ -95,7 +99,7 @@ const Sign = () => {
           >
             <div className={styles.field}>
               <TextField
-                id="outlined-basic"
+                id="name"
                 placeholder="Your full name"
                 variant="outlined"
                 type="text"
@@ -107,7 +111,7 @@ const Sign = () => {
 
             <div className={styles.field}>
               <TextField
-                id="outlined-basic"
+                id="email"
                 placeholder="Email"
                 variant="outlined"
                 type="email"
@@ -119,7 +123,7 @@ const Sign = () => {
 
             <div className={styles.field}>
               <TextField
-                id="outlined-basic"
+                id="password"
                 placeholder="Password"
                 variant="outlined"
                 type="password"
@@ -131,7 +135,7 @@ const Sign = () => {
 
             <div className={styles.field}>
               <TextField
-                id="outlined-basic"
+                id="confirmPassword"
                 placeholder="Confirm Password"
                 variant="outlined"
                 type="password"

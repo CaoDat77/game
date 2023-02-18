@@ -74,8 +74,7 @@ function Header() {
   const cart = React.useRef();
 
   React.useEffect(() => {
-    let a = document.querySelector("ul li a svg");
-    console.log(a);
+   
     const handleClose = () => {
       menu.current.style.transform = "translateX(-100%)";
     };
@@ -91,13 +90,12 @@ function Header() {
 
     const handleScroll = () => {
       if (window.scrollY > 100) {
-      
         navigation.style.backgroundColor = "#fff";
         navigation.style.boxShadow = "1px 1px 10px #000";
         listNav.style.marginTop = "0";
       } else if (window.scrollY < 100) {
-        a.style.color = "unset";
-       
+        
+
         navigation.style.backgroundColor = "unset";
         navigation.style.boxShadow = "unset";
         listNav.style.marginTop = "2rem";
