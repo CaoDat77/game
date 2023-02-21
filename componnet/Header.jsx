@@ -200,21 +200,18 @@ function Header() {
                 SHOP
               </Link>
             </li>
-            {auth.currentUser && carts.length === 0 ? (
-              <li className={styles.iconCart} count={0}>
-                <Link href="/cart" className="link">
-                  <ShoppingCartTwoToneIcon className={styles.cart} ref={cart} />
+            {auth.currentUser ? (
+              <li className={styles.iconCart} count={carts.length}>
+                <Link href="/cart" onClick={handlerToCart} className="link">
+                  <ShoppingCartTwoToneIcon className={styles.cart} />
                 </Link>
               </li>
             ) : (
-              <>
-                {" "}
-                <li className={styles.iconCart} count={carts.length}>
-                  <Link href="" onClick={handlerToCart} className="link">
-                    <ShoppingCartTwoToneIcon className={styles.cart} />
-                  </Link>
-                </li>
-              </>
+              <li className={styles.iconCart} count={0}>
+                <Link href="" onClick={handlerToCart} className="link">
+                  <ShoppingCartTwoToneIcon className={styles.cart} ref={cart} />
+                </Link>
+              </li>
             )}
 
             <li>
