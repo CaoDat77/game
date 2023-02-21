@@ -35,3 +35,9 @@
 .buttonBlack:hover {
   background-color: #dadada;
 }
+
+@media screen and (max-width: 574px) {
+  .buttonBlack {
+    padding: 1.2rem 2rem;
+  }
+}

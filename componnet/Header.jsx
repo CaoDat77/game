@@ -74,7 +74,6 @@ function Header() {
   const cart = React.useRef();
 
   React.useEffect(() => {
-   
     const handleClose = () => {
       menu.current.style.transform = "translateX(-100%)";
     };
@@ -94,8 +93,6 @@ function Header() {
         navigation.style.boxShadow = "1px 1px 10px #000";
         listNav.style.marginTop = "0";
       } else if (window.scrollY < 100) {
-        
-
         navigation.style.backgroundColor = "unset";
         navigation.style.boxShadow = "unset";
         listNav.style.marginTop = "2rem";
@@ -114,6 +111,23 @@ function Header() {
 
   const closeMenu = () => {
     menu.current.style.transform = "translateX(-100%)";
+  };
+
+  const handlerToCart = () => {
+    if (auth.currentUser) {
+      router.push("/cart");
+    } else {
+      toast.warning(`You must be logged in to access this page`, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
 
   return (
@@ -196,7 +210,7 @@ function Header() {
               <>
                 {" "}
                 <li className={styles.iconCart} count={carts.length}>
-                  <Link href="/cart" className="link">
+                  <Link href="" onClick={handlerToCart} className="link">
                     <ShoppingCartTwoToneIcon className={styles.cart} />
                   </Link>
                 </li>

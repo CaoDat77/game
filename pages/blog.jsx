@@ -19,7 +19,7 @@ function Blog() {
         <Container>
           <Row>
             <Col lg={4} className={styles.mt16}>
-              <Link href="/" className={styles.item}>
+              <Link href="/detailblog" className={styles.item}>
                 <div className={styles.over}>
                   <img className={styles.img} src="/blog/pic-2.jpg" alt="" />
                 </div>
@@ -54,7 +54,7 @@ function Blog() {
               </Link>
             </Col>
             <Col lg={4} className={styles.mt16}>
-              <Link href="/" className={styles.item}>
+              <Link href="/detailblog" className={styles.item}>
                 <div className={styles.over}>
                   <img className={styles.img} src="/blog/pic-4.jpg" alt="" />
                 </div>
@@ -73,7 +73,7 @@ function Blog() {
 
           <Row className={styles.mT32}>
             <Col lg={4} className={styles.mt16}>
-              <Link href="/" className={styles.item}>
+              <Link href="/detailblog" className={styles.item}>
                 <div className={styles.over}>
                   <img className={styles.img} src="/blog/pic-5.jpg" alt="" />
                 </div>
@@ -90,7 +90,7 @@ function Blog() {
             </Col>
 
             <Col lg={4} className={styles.mt16}>
-              <Link href="/" className={styles.item}>
+              <Link href="/detailblog" className={styles.item}>
                 <div className={styles.over}>
                   <img className={styles.img} src="/blog/pic-6.jpg" alt="" />
                 </div>
@@ -107,7 +107,7 @@ function Blog() {
             </Col>
 
             <Col lg={4} className={styles.mt16}>
-              <Link href="/" className={styles.item}>
+              <Link href="/detailblog" className={styles.item}>
                 <div className={styles.over}>
                   <img className={styles.img} src="/blog/pic-7.jpg" alt="" />
                 </div>

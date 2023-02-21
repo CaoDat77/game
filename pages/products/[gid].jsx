@@ -78,7 +78,7 @@ const ItemDetail = ({ data }) => {
         });
         toast.success(`${product.name} added to cart successfully`, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -97,7 +97,7 @@ const ItemDetail = ({ data }) => {
 
         toast.success(`${product.name} added to cart successfully`, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -109,7 +109,7 @@ const ItemDetail = ({ data }) => {
     } else {
       toast.warning(`You need to login to perform this function`, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
