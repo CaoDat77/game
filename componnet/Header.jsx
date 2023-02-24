@@ -119,7 +119,7 @@ function Header() {
     } else {
       toast.warning(`You must be logged in to access this page`, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
@@ -259,7 +259,7 @@ function Header() {
                     if (result.isConfirmed) {
                       toast.success(`Log out successfully`, {
                         position: "top-right",
-                        autoClose: 5000,
+                        autoClose: 2000,
                         hideProgressBar: false,
                         closeOnClick: true,
                         pauseOnHover: true,

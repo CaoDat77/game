@@ -59,7 +59,7 @@ function Product({ product }) {
         });
         toast.success(`${product.name} added to cart successfully`, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -76,9 +76,9 @@ function Product({ product }) {
           ...product,
         });
 
-        toast.success(`${product.name} added to cart successfully`, {
+        toast.success(`${product.name} add to cart successfully`, {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -90,7 +90,7 @@ function Product({ product }) {
     } else {
       toast.warning(`You need to login to perform this function`, {
         position: "top-right",
-        autoClose: 5000,
+        autoClose: 2000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,

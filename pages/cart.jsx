@@ -1,6 +1,6 @@
 import { selectCart } from "../store/features/cart/cart.slice";
 import { useDispatch, useSelector } from "react-redux";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Button } from "react-bootstrap";
 import { style } from "@mui/system";
 import styles from "../styles/Cart.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -25,7 +25,6 @@ import {
   updateDoc,
 } from "firebase/firestore";
 function Cart() {
-  const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const [carts, setCart] = React.useState([]);
   const [confirmDialog, setConfirmDialog] = useState({
@@ -52,7 +51,7 @@ function Cart() {
   const handleRemoveItem = async (id) => {
     toast.success(`Remove succesfully`, {
       position: "top-right",
-      autoClose: 3000,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: false,
@@ -82,6 +81,15 @@ function Cart() {
     await updateDoc(reference, {
       quantity: Math.max(quantity - 1, 1),
     });
+  };
+
+  const deleteAll = async (id) => {
+    const reference = doc(cartRef, id);
+    await deleteDoc(reference);
+  };
+
+  const clearCart = () => {
+    carts.forEach((item) => deleteAll(item.id));
   };
 
   return (
@@ -123,7 +131,6 @@ function Cart() {
               </Col>
             </Row>
           )}
-
           {auth.currentUser && carts.length === 0 ? (
             <div className={styles.empty}>
               <h1>YOUR CART IS CURRENTLY EMPTY.</h1>
@@ -201,6 +208,34 @@ function Cart() {
             <div></div>
           ) : (
             <div className="">
+              <button
+                onClick={() => {
+                  Swal.fire({
+                    title: "Do you want to remove all products?",
+                    icon: "question",
+                    iconHtml: "?",
+                    confirmButtonText: "Yes",
+                    cancelButtonText: "No",
+                    showCancelButton: true,
+                    showCloseButton: true,
+                    width: "50rem",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      Swal.fire({
+                        title: " Remove Success",
+                        showConfirmButton: false,
+                        timer: 1500,
+                        icon: "success",
+                        width: "50rem",
+                      });
+                    }
+                    clearCart();
+                  });
+                }}
+                className={styles.btnAll}
+              >
+                REMOVE ALL
+              </button>
               <h1 className={styles.cart}>CART TOTALS</h1>
               <Row className={styles.center}>
                 <Col lg={4} className={styles.mT20}>

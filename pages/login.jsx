@@ -64,7 +64,7 @@ const Login = () => {
                   if (auth.currentUser) {
                     toast.success(`Login successfully`, {
                       position: "top-right",
-                      autoClose: 5000,
+                      autoClose: 2000,
                       hideProgressBar: false,
                       closeOnClick: true,
                       pauseOnHover: true,
@@ -80,7 +80,7 @@ const Login = () => {
                 .catch((err) => {
                   toast.error(`Incorrect account or password`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,
@@ -138,7 +138,7 @@ const Login = () => {
                   if (auth.currentUser) {
                     toast.success(`Login successfully`, {
                       position: "top-right",
-                      autoClose: 5000,
+                      autoClose: 2000,
                       hideProgressBar: false,
                       closeOnClick: true,
                       pauseOnHover: true,
@@ -152,7 +152,7 @@ const Login = () => {
                 .catch((err) => {
                   toast.error(`Incorrect account or password`, {
                     position: "top-right",
-                    autoClose: 5000,
+                    autoClose: 2000,
                     hideProgressBar: false,
                     closeOnClick: true,
                     pauseOnHover: true,

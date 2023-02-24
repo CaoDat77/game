@@ -70,6 +70,8 @@ function Account() {
           </div>
         )}
 
+        <h2 style={{ marginTop: "2rem" }}> Order History</h2>
+
         {user && bill.length !== 0 ? (
           <Container className={styles.container}>
             <Row className={styles.th}>
@@ -122,7 +124,11 @@ function Account() {
             </Row> */}
           </Container>
         ) : (
-          <div></div>
+          <div>
+            <p style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
+              You haven`t placed any orders yet.
+            </p>
+          </div>
         )}
       </Container>
     </div>
