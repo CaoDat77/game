@@ -29,7 +29,7 @@ function CheckBox() {
   const [carts, setCart] = React.useState([]);
   const auth = getAuth(app);
   const user = useSelector(selectUser);
-  const cartRef = collection(getFirestore(app), "np");
+  const cartRef = collection(getFirestore(app), "store");
 
   React.useEffect(() => {
     const q = query(cartRef);
@@ -142,7 +142,7 @@ function CheckBox() {
       </Container>
 
       <section className={styles.mT80}>
-        {auth.currentUser ? (
+        {auth.currentUser /*&& carts.length != 0 */ ? (
           <Container>
             <form
               action=""
