@@ -64,7 +64,9 @@ function Account() {
         ) : (
           <div>
             <h1>Already have an account? </h1>
-            <Link href="/login">Log in</Link>
+            <Link href="/login" style={{ fontSize: "1.6rem" }}>
+              Log in
+            </Link>
           </div>
         )}
 
