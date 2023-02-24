@@ -142,7 +142,7 @@ function CheckBox() {
       </Container>
 
       <section className={styles.mT80}>
-        {auth.currentUser && carts.length !== 0 ? (
+        {auth.currentUser ? (
           <Container>
             <form
               action=""
