@@ -8,20 +8,33 @@ import {
   getFirestore,
   onSnapshot,
   query,
+  updatePassword,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { app } from "../lib/firebase";
 import { selectUser } from "../store/features/auth/auth.slice";
 import Link from "next/link";
 import { Col, Row, Container } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 function Account() {
   const [bill, setBill] = useState([]);
+
+  const {
+    handleSubmit: handleSubmit,
+    formState: { errors: errors, isSubmitSuccessful },
+  } = useForm({
+    mode: "onSubmit",
+    defaultValues: {},
+  });
 
   const user = useSelector(selectUser);
   const auth = getAuth(app);
 
   const checkoutRef = collection(getFirestore(app), "checkout");
   const router = useRouter();
+
+  console.log(user);
+  console.log(auth);
 
   useEffect(() => {
     const q = query(checkoutRef);
@@ -33,10 +46,8 @@ function Account() {
       setBill(data.filter((item) => item.uid == (user && user.uid)));
     });
 
-    console.log(bill);
-    return () => pay();
-
     console.log(user);
+    return () => pay();
   }, [user == null ? null : user.uid]);
 
   return (
@@ -60,54 +71,43 @@ function Account() {
                 </p>
               </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <h1>Already have an account? </h1>
-            <Link href="/login" style={{ fontSize: "1.6rem" }}>
-              Log in
-            </Link>
-          </div>
-        )}
-
-        <h2 style={{ marginTop: "2rem" }}> Order History</h2>
-
-        {user && bill.length !== 0 ? (
-          <Container className={styles.container}>
-            <Row className={styles.th}>
-              <Col xs={3}>
-                <h2>Date</h2>
-              </Col>
-              <Col xs={6}>
-                <h2>Product</h2>
-              </Col>
-
-              <Col xs={3}>
-                <h2>Total Payment</h2>
-              </Col>
-            </Row>
-
-            {bill.map((item, index) => {
-              return (
-                <Row key={index} className={styles.item}>
+            <h2 style={{ marginTop: "2rem" }}> Order History</h2>
+            {user && bill.length !== 0 ? (
+              <Container className={styles.container}>
+                <Row className={styles.th}>
                   <Col xs={3}>
-                    <div>{item.date}</div>
+                    <h2>Date</h2>
+                  </Col>
+                  <Col xs={6}>
+                    <h2>Product</h2>
                   </Col>
 
-                  <Col xs={6}>
-                    {item.bill.map((product, index) => {
-                      return (
-                        <div key={index}>
-                          {product.name} x {product.quantity}
-                        </div>
-                      );
-                    })}
+                  <Col xs={3}>
+                    <h2>Total Payment</h2>
                   </Col>
-                  <Col xs={3}>{item.total}$</Col>
                 </Row>
-              );
-            })}
-            {/* <Row>
+
+                {bill.map((item, index) => {
+                  return (
+                    <Row key={index} className={styles.item}>
+                      <Col xs={3}>
+                        <div>{item.date}</div>
+                      </Col>
+
+                      <Col xs={6}>
+                        {item.bill.map((product, index) => {
+                          return (
+                            <div key={index}>
+                              {product.name} x {product.quantity}
+                            </div>
+                          );
+                        })}
+                      </Col>
+                      <Col xs={3}>{item.total}$</Col>
+                    </Row>
+                  );
+                })}
+                {/* <Row>
               <Col xs={3}>
                 {bill.map((item, index) => {
                   return <div key={index}>{item.date}</div>;
@@ -122,12 +122,21 @@ function Account() {
                 })}
               </Col>
             </Row> */}
-          </Container>
+              </Container>
+            ) : (
+              <div>
+                <p style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
+                  You haven`t placed any orders yet.
+                </p>
+              </div>
+            )}
+          </div>
         ) : (
           <div>
-            <p style={{ fontSize: "1.5rem", marginTop: "1rem" }}>
-              You haven`t placed any orders yet.
-            </p>
+            <h1>Already have an account? </h1>
+            <Link href="/login" style={{ fontSize: "1.6rem" }}>
+              Log in
+            </Link>
           </div>
         )}
       </Container>
