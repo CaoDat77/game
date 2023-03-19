@@ -101,11 +101,10 @@ function Header() {
 
     if (user !== null) {
       let logout = document.querySelector(".logout");
-      // logout.style.color = "white";
     }
 
     window.addEventListener("scroll", handleScroll);
-  }, [router.pathname]);
+  }, []);
 
   // React.useEffect(() => {}, [router.pathname, user]);
 
@@ -132,39 +131,110 @@ function Header() {
 
   return (
     <Container fluid className={styles.center}>
-      <div className={styles.menuNav} ref={menu}>
-        <div className={styles.headerMenu}>
-          <div className={styles.logoNav}>CUTHBERT</div>
-          <div className={styles.logoNav} ref={close}>
-            <CloseIcon />
+      {user !== null ? (
+        <div className={styles.menuNav} ref={menu}>
+          <div className={styles.headerMenu}>
+            <div className={styles.logoNav}>CUTHBERT</div>
+            <div className={styles.logoNav} ref={close}>
+              <CloseIcon />
+            </div>
+          </div>
+          <div className={styles.navMb}>
+            <Link href="/" onClick={closeMenu}>
+              <div className="">HOME</div>
+            </Link>
+
+            <Link href="/about" onClick={closeMenu}>
+              <div className="">ABOUT</div>
+            </Link>
+
+            <Link href="/contact" onClick={closeMenu}>
+              <div className="">CONTACT</div>
+            </Link>
+
+            <Link href="/blog" onClick={closeMenu}>
+              <div className="">BLOG</div>
+            </Link>
+
+            <Link href="/products" onClick={closeMenu}>
+              <div className="">SHOP</div>
+            </Link>
+
+            <p
+              style={{
+                fontSize: "2.2rem",
+                padding: "1.6rem",
+                cursor: "pointer",
+              }}
+              onClick={() => {
+                Swal.fire({
+                  title: "Are you sure you want to sign out?",
+                  icon: "question",
+                  iconHtml: "?",
+                  confirmButtonText: "Yes",
+                  cancelButtonText: "No",
+                  showCancelButton: true,
+                  showCloseButton: true,
+                  width: "50rem",
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    toast.success(`Log out successfully`, {
+                      position: "top-right",
+                      autoClose: 2000,
+                      hideProgressBar: false,
+                      closeOnClick: true,
+                      pauseOnHover: true,
+                      draggable: true,
+                      progress: undefined,
+                      theme: "light",
+                    });
+                    auth.signOut();
+                    router.push("/");
+                    closeMenu();
+                  }
+                });
+              }}
+            >
+              <div className="">LOG OUT</div>
+            </p>
           </div>
         </div>
-        <div className={styles.navMb}>
-          <Link href="/" onClick={closeMenu}>
-            <div className="">HOME</div>
-          </Link>
+      ) : (
+        <div className={styles.menuNav} ref={menu}>
+          <div className={styles.headerMenu}>
+            <div className={styles.logoNav}>CUTHBERT</div>
+            <div className={styles.logoNav} ref={close}>
+              <CloseIcon />
+            </div>
+          </div>
+          <div className={styles.navMb}>
+            <Link href="/" onClick={closeMenu}>
+              <div className="">HOME</div>
+            </Link>
 
-          <Link href="/about" onClick={closeMenu}>
-            <div className="">ABOUT</div>
-          </Link>
+            <Link href="/about" onClick={closeMenu}>
+              <div className="">ABOUT</div>
+            </Link>
 
-          <Link href="/contact" onClick={closeMenu}>
-            <div className="">CONTACT</div>
-          </Link>
+            <Link href="/contact" onClick={closeMenu}>
+              <div className="">CONTACT</div>
+            </Link>
 
-          <Link href="/blog" onClick={closeMenu}>
-            <div className="">BLOG</div>
-          </Link>
+            <Link href="/blog" onClick={closeMenu}>
+              <div className="">BLOG</div>
+            </Link>
 
-          <Link href="/products" onClick={closeMenu}>
-            <div className="">SHOP</div>
-          </Link>
+            <Link href="/products" onClick={closeMenu}>
+              <div className="">SHOP</div>
+            </Link>
 
-          <Link href="/login" onClick={closeMenu}>
-            <div className="">LOG IN</div>
-          </Link>
+            <Link href="/login" onClick={closeMenu}>
+              <div className="">LOG IN</div>
+            </Link>
+          </div>
         </div>
-      </div>
+      )}
+
       <Container fluid ref={nav} className={styles.navBg}>
         <Container className={styles.nav} ref={list}>
           <MenuTwoToneIcon className={styles.menu} ref={open} />

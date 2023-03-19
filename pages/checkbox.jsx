@@ -79,7 +79,7 @@ function CheckBox() {
     formState: { errors, isSubmitSuccessful },
   } = useForm({
     mode: "onSubmit",
-    reValidateMode: "onSubmit",
+    reValidateMode: "onChange",
     defaultValues: {},
   });
 
@@ -134,11 +134,7 @@ function CheckBox() {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg}>
-        <h1
-          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
-        >
-          CART / CHECKOUT{" "}
-        </h1>
+        <h1 className={styles.h1}>CART / CHECKOUT </h1>
       </Container>
 
       <section className={styles.mT80}>
@@ -199,9 +195,9 @@ function CheckBox() {
                       </div>
                     </div>
 
-                    <div className="" style={{ display: "flex", gap: "1rem" }}>
+                    <div className={styles.address}>
                       <div className="" style={{ margin: 0 }}>
-                        <div className="">
+                        <div className="" style={{ marginTop: "0" }}>
                           <label htmlFor="city">Town / City</label>
                           <input {...city} type="text" name="city" />
                         </div>
@@ -209,7 +205,7 @@ function CheckBox() {
                       </div>
 
                       <div className="" style={{ margin: 0 }}>
-                        <div className="">
+                        <div className="" style={{ marginTop: "0" }}>
                           <label htmlFor="address">Street address</label>
                           <input {...address} type="text" name="address" />
                         </div>
@@ -268,18 +264,17 @@ function CheckBox() {
                 </Col>
                 <Col lg={6}>
                   <h2>ADDITIONAL INFORMATION</h2>
-                  <form className="">
-                    <div className={styles.right}>
-                      <label htmlFor="text" className={styles.note}>
-                        Order notes (optional)
-                      </label>
-                      <textarea
-                        className={styles.textarea}
-                        type="text"
-                        name="text"
-                      />
-                    </div>
-                  </form>
+
+                  <div className={styles.right}>
+                    <label htmlFor="text" className={styles.note}>
+                      Order notes (optional)
+                    </label>
+                    <textarea
+                      className={styles.textarea}
+                      type="text"
+                      name="text"
+                    />
+                  </div>
 
                   <h2 className={styles.mT20}>YOUR ORDER</h2>
                   <div>

@@ -27,9 +27,6 @@ function Account() {
     defaultValues: {},
   });
 
-  const user = useSelector(selectUser);
-  const auth = getAuth(app);
-
   const checkoutRef = collection(getFirestore(app), "checkout");
   const router = useRouter();
 

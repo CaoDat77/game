@@ -94,7 +94,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 1001;
   transform: translateX(-100%);
   transition: 0.5s;
 }
@@ -189,8 +189,8 @@ li:last-child:hover .info {
 
 @media screen and (max-width: 574px) {
   .iconCart::before {
-    top: -1rem;
-    right: -1.5rem;
+    top: -0.7rem;
+    right: -0.5rem;
     font-size: 1rem;
   }
 
