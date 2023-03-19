@@ -228,8 +228,9 @@ function Cart() {
                         icon: "success",
                         width: "50rem",
                       });
+ clearCart();
                     }
-                    clearCart();
+                   
                   });
                 }}
                 className={styles.btnAll}
