@@ -30,8 +30,8 @@ function Account() {
   const checkoutRef = collection(getFirestore(app), "checkout");
   const router = useRouter();
 
-  console.log(user);
-  console.log(auth);
+  const user = useSelector(selectUser);
+  const auth = getAuth(app);
 
   useEffect(() => {
     const q = query(checkoutRef);
