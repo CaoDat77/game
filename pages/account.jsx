@@ -19,13 +19,6 @@ import { useForm } from "react-hook-form";
 function Account() {
   const [bill, setBill] = useState([]);
 
-  const {
-    handleSubmit: handleSubmit,
-    formState: { errors: errors, isSubmitSuccessful },
-  } = useForm({
-    mode: "onSubmit",
-    defaultValues: {},
-  });
 
   const checkoutRef = collection(getFirestore(app), "checkout");
   const router = useRouter();
@@ -104,7 +97,7 @@ function Account() {
                     </Row>
                   );
                 })}
-                {/* <Row>
+                <Row>
               <Col xs={3}>
                 {bill.map((item, index) => {
                   return <div key={index}>{item.date}</div>;
@@ -118,7 +111,7 @@ function Account() {
                   });
                 })}
               </Col>
-            </Row> */}
+            </Row>
               </Container>
             ) : (
               <div>
