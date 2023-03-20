@@ -117,3 +117,37 @@
 .price {
   margin-top: 1.5rem;
 }
+
+.h1 {
+  color: #fff;
+  font-size: 5rem;
+  letter-spacing: 0.3rem;
+}
+
+.button {
+  margin-top: 2.4rem;
+  background-color: transparent;
+  border: 2px solid #dadada;
+  padding: 1.2rem 3rem;
+  font-size: 1.4rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.3rem;
+  transition: 0.3s;
+  cursor: pointer;
+  color: black;
+}
+
+.button:hover {
+  background-color: #dadada;
+}
+
+@media screen and (max-width: 574px) {
+  .h1 {
+    font-size: 3rem;
+  }
+
+  .button {
+    padding: 1.2rem 1rem;
+  }
+}

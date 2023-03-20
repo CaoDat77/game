@@ -8,17 +8,14 @@ import {
   getFirestore,
   onSnapshot,
   query,
-  updatePassword,
 } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 import { app } from "../lib/firebase";
 import { selectUser } from "../store/features/auth/auth.slice";
 import Link from "next/link";
 import { Col, Row, Container } from "react-bootstrap";
-import { useForm } from "react-hook-form";
 function Account() {
   const [bill, setBill] = useState([]);
-
 
   const checkoutRef = collection(getFirestore(app), "checkout");
   const router = useRouter();
@@ -98,20 +95,20 @@ function Account() {
                   );
                 })}
                 <Row>
-              <Col xs={3}>
-                {bill.map((item, index) => {
-                  return <div key={index}>{item.date}</div>;
-                })}
-              </Col>
+                  <Col xs={3}>
+                    {bill.map((item, index) => {
+                      return <div key={index}>{item.date}</div>;
+                    })}
+                  </Col>
 
-              <Col xs={6}>
-                {bill.map((item) => {
-                  return item.bill.map((product, index) => {
-                    return <div key={index}>{product.name}</div>;
-                  });
-                })}
-              </Col>
-            </Row>
+                  <Col xs={6}>
+                    {bill.map((item) => {
+                      return item.bill.map((product, index) => {
+                        return <div key={index}>{product.name}</div>;
+                      });
+                    })}
+                  </Col>
+                </Row>
               </Container>
             ) : (
               <div>

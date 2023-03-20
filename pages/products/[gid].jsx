@@ -43,12 +43,6 @@ const ItemDetail = ({ data }) => {
     }
   };
 
-  // const handleAddToCartClick = (productId) => {
-  //   dispatch(addItem({ productId: productId, quantity: quantitys }));
-  // };
-  // console.log(quantitys);
-  // console.log(product);
-
   // add to cart
   const cartRef = collection(getFirestore(app), "store");
 
@@ -123,11 +117,7 @@ const ItemDetail = ({ data }) => {
   return (
     <Container fluid className={styles.page}>
       <Container fluid className={styles.bg} id="#">
-        <h1
-          style={{ color: "white", fontSize: "5rem", letterSpacing: "0.3rem" }}
-        >
-          SHOP / DETAIL
-        </h1>
+        <h1 className={styles.h1}>SHOP / DETAIL</h1>
       </Container>
       <section className={styles.mtT80}>
         <Container>
@@ -151,7 +141,7 @@ const ItemDetail = ({ data }) => {
                     <p onClick={countUp}>+</p>
                   </div>
                   <div className="" onClick={() => handleAddtoCart(data)}>
-                    <ButtonBlack text="ADD TO CART" />
+                    <button className={styles.button}>ADD TO CART</button>
                   </div>
                 </div>
 
