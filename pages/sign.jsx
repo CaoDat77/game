@@ -23,6 +23,7 @@ const Sign = () => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const router = useRouter();
+  // const reference = collection(getFirestore(app), "name");
 
   const {
     reset: reset2,
@@ -83,17 +84,21 @@ const Sign = () => {
             onSubmit={handleSubmit2((data) => {
               createUserWithEmailAndPassword(auth, data.email, data.password)
                 .then(() => {
-                  // const reference = collection(getFirestore(app), "name");
                   // addDoc(reference, data.name);
                   updateProfile(auth.currentUser, {
                     displayName: data.name,
                   });
-                  toast.success(`Login successfully`);
+                  toast.success(`Login successfully`, {
+                    autoClose: 1000,
+                  });
                   reset2();
                   router.push("/");
+                  
                 })
                 .catch(function (error) {
-                  toast.error("Account already exists");
+                  toast.error("Account already exists", {
+                    autoClose: 1000,
+                  });
                 });
             })}
           >

@@ -160,11 +160,16 @@ function Header() {
               <div className="">SHOP</div>
             </Link>
 
+            <Link href="/account" onClick={closeMenu}>
+              <div className="">ACCOUNT</div>
+            </Link>
+
             <p
               style={{
                 fontSize: "2.2rem",
                 padding: "1.6rem",
                 cursor: "pointer",
+                fontFamily: " Poppins,sans-serif",
               }}
               onClick={() => {
                 Swal.fire({

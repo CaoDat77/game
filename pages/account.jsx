@@ -53,9 +53,13 @@ function Account() {
             <div className={styles.info}>
               <div className="">
                 <p className={styles.input}>Email : {user && user.email} </p>
-                <p className={styles.input}>
-                  Name : {user && user.displayName}
-                </p>
+                {user.displayName === null ? (
+                  ""
+                ) : (
+                  <p className={styles.input}>
+                    Name : {user && user.displayName}
+                  </p>
+                )}
               </div>
             </div>
             <h2 style={{ marginTop: "2rem" }}> Order History</h2>
