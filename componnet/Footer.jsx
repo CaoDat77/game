@@ -121,7 +121,7 @@ function Footer() {
             </div>
             <div className="">
               <h1 className={styles.logo}>CUTHBERT</h1>
-              <p className={styles.dat}>BUILD BY @QODEINTERACTIVE</p>
+              <p className={styles.dat}>BUILD BY CAO TIEN DAT</p>
             </div>
           </Col>
         </Row>
