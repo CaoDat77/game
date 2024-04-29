@@ -13,7 +13,7 @@ This is a sample furniture e-commerce website built with Next.js, React, and Red
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/CaoDat77/game.git
+git https://github.com/CaoDat77/store.git
 ```
 
 2. Install the dependencies:
